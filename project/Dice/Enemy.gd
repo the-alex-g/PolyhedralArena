@@ -18,7 +18,7 @@ const LEVEL_TO_COLOR := {
 	6:"FF9D00",
 }
 
-export var speed := 10
+export var speed := 7
 
 onready var _face = $Face as AnimatedSprite3D
 onready var _legs = $AnimationPlayer as AnimationPlayer
@@ -30,6 +30,7 @@ var target : KinematicBody
 
 func _ready()->void:
 	_body.material_override = SpatialMaterial.new()
+	_legs.play("Run")
 
 
 func _physics_process(delta:float)->void:
@@ -39,6 +40,8 @@ func _physics_process(delta:float)->void:
 
 func hit(damage:int)->void:
 	_set_level(level - damage)
+	if level <= 0:
+		queue_free()
 
 
 func _set_level(value:int)->void:

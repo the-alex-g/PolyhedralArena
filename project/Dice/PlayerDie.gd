@@ -17,4 +17,4 @@ func throw()->void:
 	var bomb = load("res://Dice/Bomb.tscn").instance() as RigidBody
 	bomb.global_transform = $ThrowPoint.global_transform
 	get_parent().add_child(bomb)
-	bomb.apply_central_impulse(Vector3.BACK.rotated(Vector3.UP, rotation.y) * 20)
+	bomb.apply_central_impulse(Vector3.BACK.rotated(Vector3.UP, rotation.y) * 50)
