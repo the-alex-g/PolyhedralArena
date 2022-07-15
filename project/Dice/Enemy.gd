@@ -1,6 +1,8 @@
 class_name Enemy
 extends KinematicBody
 
+signal killed(level_name)
+
 const DEAD_DIE := preload("res://Dice/DeadDie.tscn")
 const LEVEL_TO_NAME := {
 	1:"greeblin",
@@ -40,6 +42,8 @@ func _physics_process(delta:float)->void:
 
 
 func hit(damage:int)->void:
+	if level - damage <= 0:
+		emit_signal("killed", LEVEL_TO_NAME[level])
 	var dead_die := DEAD_DIE.instance()
 	dead_die.translation = translation
 	dead_die.start = LEVEL_TO_COLOR[level]

@@ -10,6 +10,7 @@ func spawn(player:Player)->void:
 		enemy.translation.y += 1.73
 		get_parent().get_parent().add_child(enemy)
 		enemy.set_deferred("level", (randi() % 6) + 1)
+		enemy.connect("killed", get_parent().get_parent(), "_on_enemy_killed", [], CONNECT_ONESHOT)
 
 
 func _on_VisibilityNotifier_camera_entered(_camera)->void:

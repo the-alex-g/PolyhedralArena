@@ -107,9 +107,6 @@ transform = Transform( 1, 0, 0, 0, 0.832709, 0.553711, 0, -0.553711, 0.832709, 0
 [node name="RightThighJoint" parent="." index="3"]
 transform = Transform( 1, 0, 0, 0, 0.832709, 0.553711, 0, -0.553711, 0.832709, -0.4, -0.45, 0 )
 
-[node name="RightKneeJoint" parent="RightThighJoint/Thigh" index="0"]
-transform = Transform( 1, 0, 0, 0, -0.501149, -0.865362, 0, 0.865362, -0.501149, 0, -0.4, 5.96046e-08 )
-
 [node name="Camera" type="Camera" parent="." index="5"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.5 )
 current = true
