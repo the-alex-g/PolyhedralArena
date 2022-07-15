@@ -9,7 +9,7 @@ var level : int
 
 
 func _ready()->void:
-	_tween.interpolate_property($CSGBox.material_override, "albedo_color", start, end, 1, Tween.TRANS_QUAD)
+	_tween.interpolate_property($Die.material_override, "albedo_color", start, end, 1, Tween.TRANS_QUAD)
 	_tween.start()
 
 
