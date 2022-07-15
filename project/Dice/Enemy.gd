@@ -28,6 +28,10 @@ var level := 0 setget _set_level
 var target : KinematicBody
 
 
+func _ready()->void:
+	_body.material_override = SpatialMaterial.new()
+
+
 func _physics_process(delta:float)->void:
 	# warning-ignore:return_value_discarded
 	move_and_collide(Vector3.BACK.rotated(Vector3.UP, rotation.y + PI) * speed * delta)
