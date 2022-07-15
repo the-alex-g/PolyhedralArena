@@ -15,5 +15,6 @@ func _on_SpawnTimer_timeout()->void:
 	var enemy = load("res://Dice/EnemyDie.tscn").instance() as Enemy
 	enemy.target = _player
 	enemy.translation = spawn_point.translation
+	enemy.translation.y += 1.73
 	_enemy_container.add_child(enemy)
 	enemy.set_deferred("level", (randi() % 6) + 1)

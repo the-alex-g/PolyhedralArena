@@ -1,7 +1,102 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Dice/Die.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Dice/PlayerDie.gd" type="Script" id=2]
+[ext_resource path="res://Dice/Materials/LegMaterial.tres" type="Material" id=3]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("LeftShoulderJoint:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -24.661, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RightShoulderJoint:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -24.661, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("LeftShoulderJoint/UpperArm/LowerArm/FakeDie:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Throw"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("LeftShoulderJoint:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -24.661, 16.796, 0 ), Vector3( 158.647, 0, 0 ), Vector3( -24.661, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RightShoulderJoint:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -24.661, -21.35, 0 ), Vector3( 158.647, 0, 0 ), Vector3( -24.661, 0, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "throw"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("LeftShoulderJoint/UpperArm/LowerArm/FakeDie:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="PlayerDie" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -18,3 +113,55 @@ transform = Transform( 1, 0, 0, 0, -0.501149, -0.865362, 0, 0.865362, -0.501149,
 [node name="Camera" type="Camera" parent="." index="5"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.5 )
 current = true
+
+[node name="LeftShoulderJoint" type="Spatial" parent="." index="6"]
+transform = Transform( 1, 0, 0, 0, 0.908792, 0.417249, 0, -0.417249, 0.908792, 0.656837, 0.274592, 0.274081 )
+
+[node name="UpperArm" type="CSGCylinder" parent="LeftShoulderJoint" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.244807, 0 )
+radius = 0.1
+height = 0.6
+sides = 6
+smooth_faces = false
+material = ExtResource( 3 )
+
+[node name="LowerArm" type="CSGCylinder" parent="LeftShoulderJoint/UpperArm" index="0"]
+transform = Transform( 1, 0, 0, 0, 0.55102, 0.834492, 0, -0.834492, 0.55102, 0, 0.459136, -0.191219 )
+radius = 0.1
+height = 0.6
+sides = 6
+smooth_faces = false
+material = ExtResource( 3 )
+
+[node name="FakeDie" type="CSGBox" parent="LeftShoulderJoint/UpperArm/LowerArm" index="0"]
+transform = Transform( 0.972097, 0.153842, 0.177092, -0.153842, 0.988, -0.0138149, -0.177092, -0.013815, 0.984098, -0.391038, 0.322001, 0.0706224 )
+visible = false
+width = 0.7
+height = 0.7
+depth = 0.7
+
+[node name="RightShoulderJoint" type="Spatial" parent="." index="7"]
+transform = Transform( 1, 0, 0, 0, 0.908792, 0.417249, 0, -0.417249, 0.908792, -0.657, 0.275, 0.274 )
+
+[node name="UpperArm" type="CSGCylinder" parent="RightShoulderJoint" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.244807, 0 )
+radius = 0.1
+height = 0.6
+sides = 6
+smooth_faces = false
+material = ExtResource( 3 )
+
+[node name="LowerArm" type="CSGCylinder" parent="RightShoulderJoint/UpperArm" index="0"]
+transform = Transform( 1, 0, 0, 0, 0.55102, 0.834492, 0, -0.834492, 0.55102, 0, 0.459136, -0.191219 )
+radius = 0.1
+height = 0.6
+sides = 6
+smooth_faces = false
+material = ExtResource( 3 )
+
+[node name="ArmAnimator" type="AnimationPlayer" parent="." index="8"]
+anims/RESET = SubResource( 1 )
+anims/Throw = SubResource( 2 )
+
+[node name="ThrowPoint" type="Position3D" parent="." index="9"]
+transform = Transform( 0.944574, 0.215304, 0.247842, 2.01166e-07, 0.754924, -0.655813, -0.328301, 0.619464, 0.713081, 0.364, 0.568503, 1.29496 )
