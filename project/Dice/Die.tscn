@@ -158,6 +158,7 @@ tracks/5/keys = {
 }
 
 [node name="Die" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.72991, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
@@ -179,7 +180,7 @@ smooth_faces = false
 material = ExtResource( 1 )
 
 [node name="LeftKneeJoint" type="Spatial" parent="LeftThighJoint/Thigh"]
-transform = Transform( 1, -1.17705e-08, -4.38118e-08, -4.38117e-08, -0.501148, -0.865362, -1.17705e-08, 0.865362, -0.501148, 5.96046e-08, -0.400001, 2.98023e-08 )
+transform = Transform( 1, -1.17705e-08, -4.38118e-08, -4.38118e-08, -0.501148, -0.865362, -1.17705e-08, 0.865362, -0.501148, 5.96046e-08, -0.400001, 2.98023e-08 )
 
 [node name="Shin" type="CSGCylinder" parent="LeftThighJoint/Thigh/LeftKneeJoint"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0 )
@@ -212,7 +213,7 @@ smooth_faces = false
 material = ExtResource( 1 )
 
 [node name="RightKneeJoint" type="Spatial" parent="RightThighJoint/Thigh"]
-transform = Transform( 1, 0, 0, 0, -0.501148, -0.865362, 0, 0.865362, -0.501148, 0, -0.4, 5.96046e-08 )
+transform = Transform( 1, 0, 0, 0, -0.501149, -0.865362, 0, 0.865362, -0.501149, 0, -0.4, 5.96046e-08 )
 
 [node name="Shin" type="CSGCylinder" parent="RightThighJoint/Thigh/RightKneeJoint"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0 )
