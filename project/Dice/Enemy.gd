@@ -1,6 +1,7 @@
 class_name Enemy
 extends KinematicBody
 
+const DEAD_DIE := preload("res://Dice/DeadDie.tscn")
 const LEVEL_TO_NAME := {
 	1:"greeblin",
 	2:"hopper",
@@ -39,9 +40,27 @@ func _physics_process(delta:float)->void:
 
 
 func hit(damage:int)->void:
+	var dead_die := DEAD_DIE.instance()
+	dead_die.translation = translation
+	dead_die.start = LEVEL_TO_COLOR[level]
+	dead_die.player = target
 	_set_level(level - damage)
-	if level <= 0:
-		queue_free()
+	dead_die.level = level
+	if level > 0:
+		dead_die.end = LEVEL_TO_COLOR[level]
+	else:
+		dead_die.end = Color.black
+	get_parent().add_child(dead_die)
+	var twist := Vector3.ZERO
+	match randi() % 3:
+		0:
+			twist.x = randf()
+		1:
+			twist.y = randf()
+		2:
+			twist.z = randf()
+	dead_die.apply_impulse(twist, Vector3.BACK.rotated(Vector3.UP, rotation.y) * 50)
+	queue_free()
 
 
 func _set_level(value:int)->void:
