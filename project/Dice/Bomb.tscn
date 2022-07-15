@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Dice/Bomb.gd" type="Script" id=1]
 [ext_resource path="res://Dice/SixSidedDie.tscn" type="PackedScene" id=2]
@@ -11,6 +11,14 @@ extents = Vector3( 0.35, 0.35, 0.35 )
 
 [sub_resource type="SphereShape" id=2]
 radius = 3.35272
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 1, 0, 0, 1 )
+emission_enabled = true
+emission = Color( 1, 0, 0, 1 )
+emission_energy = 0.5
+emission_operator = 0
+emission_on_uv2 = false
 
 [node name="RigidBody" type="RigidBody"]
 mass = 4.0
@@ -30,5 +38,6 @@ shape = SubResource( 2 )
 
 [node name="Die" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
+material_override = SubResource( 4 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
