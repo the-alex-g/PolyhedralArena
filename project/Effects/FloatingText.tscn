@@ -64,6 +64,7 @@ render_target_v_flip = true
 [node name="Label" type="Label" parent="Viewport"]
 margin_right = 100.0
 margin_bottom = 100.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_fonts/font = ExtResource( 1 )
 text = "1"
 align = 1
