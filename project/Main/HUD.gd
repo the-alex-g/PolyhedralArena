@@ -9,6 +9,11 @@ var percent_powered := 0.0 setget _set_power
 var health := 6 setget _set_health
 
 
+func _ready()->void:
+	# make sure the health die has six facing the camera
+	_health_animator.play("RESET")
+
+
 func _set_time(value:int)->void:
 	time = value
 	_time_display.text = str(time)

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="SphereMesh" id=1]
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0.453409 ), 0.0, 0.0, 0, 0, Vector2( 0.137255, 0.989773 ), 0.0, 0.0, 0, 0, Vector2( 0.666667, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.834091 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.116022, 1 )
+colors = PoolColorArray( 0.916667, 0.916667, 0.916667, 1, 1, 0.84375, 0, 1, 1, 0, 0, 1 )
+
+[node name="CPUParticles" type="CPUParticles"]
+emitting = false
+one_shot = true
+speed_scale = 4.0
+explosiveness = 0.5
+mesh = SubResource( 1 )
+direction = Vector3( 0, 0, 1 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.5
+scale_amount_curve = SubResource( 2 )
+color_ramp = SubResource( 3 )
