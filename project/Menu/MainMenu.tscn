@@ -1,8 +1,16 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Menu/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Font/Bungee-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Styles/theme.tres" type="Theme" id=3]
 [ext_resource path="res://ColoredFaces.png" type="Texture" id=4]
+[ext_resource path="res://Font/display.tres" type="DynamicFont" id=5]
+
+[sub_resource type="DynamicFont" id=9]
+size = 64
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
@@ -74,6 +82,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.411765, 1, 0, 1 )
 
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -354.0
+margin_top = 33.0
+margin_right = 354.0
+margin_bottom = 98.0
+custom_colors/font_color = Color( 1, 0.615686, 0, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "Polyhedron Arena"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -86,28 +105,34 @@ margin_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StatButton" type="Button" parent="VBoxContainer"]
-margin_right = 88.0
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+margin_right = 89.0
 margin_bottom = 27.0
+text = "Play"
+
+[node name="StatButton" type="Button" parent="VBoxContainer"]
+margin_top = 31.0
+margin_right = 89.0
+margin_bottom = 58.0
 grow_horizontal = 2
 text = "Stats"
 
 [node name="Options" type="Button" parent="VBoxContainer"]
-margin_top = 31.0
-margin_right = 88.0
-margin_bottom = 58.0
+margin_top = 62.0
+margin_right = 89.0
+margin_bottom = 89.0
 text = "Options"
 
-[node name="PlayButton" type="Button" parent="VBoxContainer"]
-margin_top = 62.0
-margin_right = 88.0
-margin_bottom = 89.0
-text = "Play"
+[node name="InstruxButton" type="Button" parent="VBoxContainer"]
+margin_top = 93.0
+margin_right = 89.0
+margin_bottom = 120.0
+text = "Instrux"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
-margin_top = 93.0
-margin_right = 88.0
-margin_bottom = 120.0
+margin_top = 124.0
+margin_right = 89.0
+margin_bottom = 151.0
 text = "Quit"
 
 [node name="StatMenu" type="Panel" parent="."]
@@ -279,6 +304,7 @@ margin_bottom = 58.0
 text = "Clear"
 
 [node name="OptionsMenu" type="Panel" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -325,18 +351,67 @@ margin_right = 211.0
 margin_bottom = 165.0
 text = "Back"
 
+[node name="InstruxDisplay" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -435.0
+margin_top = -149.0
+margin_right = 435.0
+margin_bottom = 149.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InstruxDisplay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -410.5
+margin_top = -134.0
+margin_right = 410.5
+margin_bottom = 134.0
+
+[node name="Header" type="Label" parent="InstruxDisplay/VBoxContainer"]
+margin_right = 821.0
+margin_bottom = 33.0
+custom_colors/font_color = Color( 1, 0.615686, 0, 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "Survive the Arena for as long as possible!"
+
+[node name="Instrux" type="Label" parent="InstruxDisplay/VBoxContainer"]
+margin_top = 37.0
+margin_right = 821.0
+margin_bottom = 214.0
+text = "-Left stick / WASD: Move
+-Right stick / left and right arrows: turn
+-X / space: attack! Hold to increase range
+
+-Die in upper left of screen is your health
+-Number in center top of screen is the time you have survived so far
+-Number in top right of screen is the number of enemies you have killed in the round
+-Bar at bottom shows how long you have held attack for"
+autowrap = true
+
+[node name="BackButton" type="Button" parent="InstruxDisplay/VBoxContainer"]
+margin_top = 218.0
+margin_right = 821.0
+margin_bottom = 245.0
+text = "Back"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Fade"
 anims/Fade = SubResource( 7 )
 anims/RESET = SubResource( 8 )
 
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/StatButton" to="." method="_on_StatButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_Options_pressed"]
-[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/InstruxButton" to="." method="_on_InstruxButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="StatMenu/VBoxContainer7/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="StatMenu/VBoxContainer7/ClearButton" to="." method="_on_ClearButton_pressed"]
 [connection signal="toggled" from="OptionsMenu/VBoxContainer2/Music" to="." method="_on_Music_toggled"]
 [connection signal="toggled" from="OptionsMenu/VBoxContainer2/SFX" to="." method="_on_SFX_toggled"]
 [connection signal="toggled" from="OptionsMenu/VBoxContainer2/Fullscreen" to="." method="_on_Fullscreen_toggled"]
-[connection signal="pressed" from="OptionsMenu/VBoxContainer2/Back" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="OptionsMenu/VBoxContainer2/Back" to="." method="_on_OptionsBack_pressed"]
+[connection signal="pressed" from="InstruxDisplay/VBoxContainer/BackButton" to="." method="_on_InstruxBackButton_pressed"]
