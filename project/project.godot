@@ -26,7 +26,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="NewProject"
+config/name="Polyhedron Arena"
 run/main_scene="res://Main/Main.tscn"
 config/icon="res://icon.png"
 

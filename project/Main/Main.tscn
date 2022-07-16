@@ -53,13 +53,13 @@ material = ExtResource( 4 )
 [node name="Spawns" type="Spatial" parent="."]
 
 [node name="Spawnpoint" parent="Spawns" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.7, 0, 0 )
 
 [node name="Spawnpoint5" parent="Spawns" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 27 )
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -17.9827, 0, 28.0241 )
 
 [node name="Spawnpoint6" parent="Spawns" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -27 )
+transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -16.273, 0, -28.9985 )
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
 
