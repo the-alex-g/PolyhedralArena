@@ -1,38 +1,65 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Menu/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://Faces.png" type="Texture" id=2]
 [ext_resource path="res://Styles/theme.tres" type="Theme" id=3]
+[ext_resource path="res://ColoredFaces.png" type="Texture" id=4]
 
 [sub_resource type="AtlasTexture" id=1]
-flags = 7
-atlas = ExtResource( 2 )
+atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=2]
-flags = 7
-atlas = ExtResource( 2 )
+atlas = ExtResource( 4 )
 region = Rect2( 96, 0, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=3]
-flags = 7
-atlas = ExtResource( 2 )
+atlas = ExtResource( 4 )
 region = Rect2( 96, 96, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=4]
-flags = 7
-atlas = ExtResource( 2 )
-region = Rect2( 192, 96, 96, 96 )
+atlas = ExtResource( 4 )
+region = Rect2( 0, 192, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=5]
-flags = 7
-atlas = ExtResource( 2 )
+atlas = ExtResource( 4 )
 region = Rect2( 0, 96, 96, 96 )
 
 [sub_resource type="AtlasTexture" id=6]
-flags = 7
-atlas = ExtResource( 2 )
-region = Rect2( 0, 192, 96, 96 )
+atlas = ExtResource( 4 )
+region = Rect2( 96, 192, 96, 96 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "Fade"
+length = 60.0
+loop = true
+step = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10, 20, 30, 40, 50 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.333333, 0.8, 0, 1 ), Color( 0.721569, 0, 0, 1 ), Color( 0.746667, 0.8, 0, 1 ), Color( 0, 0.8, 0.653333, 1 ), Color( 0.72, 0, 0.8, 1 ), Color( 0.8, 0.493333, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.411765, 1, 0, 1 ) ]
+}
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -41,6 +68,11 @@ margin_left = 1.0
 margin_right = 1.0
 theme = ExtResource( 3 )
 script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.411765, 1, 0, 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -51,21 +83,29 @@ margin_left = -20.0
 margin_top = -20.0
 margin_right = 20.0
 margin_bottom = 20.0
+grow_horizontal = 2
 grow_vertical = 2
 
 [node name="StatButton" type="Button" parent="VBoxContainer"]
-margin_right = 64.0
+margin_right = 88.0
 margin_bottom = 27.0
 grow_horizontal = 2
 text = "Stats"
 
-[node name="PlayButton" type="Button" parent="VBoxContainer"]
+[node name="Options" type="Button" parent="VBoxContainer"]
 margin_top = 31.0
-margin_right = 64.0
+margin_right = 88.0
 margin_bottom = 58.0
+text = "Options"
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+margin_top = 62.0
+margin_right = 88.0
+margin_bottom = 89.0
 text = "Play"
 
 [node name="StatMenu" type="Panel" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 300.0
@@ -232,7 +272,64 @@ margin_right = 92.0
 margin_bottom = 58.0
 text = "Clear"
 
+[node name="OptionsMenu" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -161.5
+margin_top = -99.0
+margin_right = 161.5
+margin_bottom = 99.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="OptionsMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Music" type="CheckButton" parent="OptionsMenu/VBoxContainer2"]
+margin_right = 211.0
+margin_bottom = 42.0
+pressed = true
+text = "Music"
+
+[node name="SFX" type="CheckButton" parent="OptionsMenu/VBoxContainer2"]
+margin_top = 46.0
+margin_right = 211.0
+margin_bottom = 88.0
+pressed = true
+text = "Sound Effects"
+
+[node name="Fullscreen" type="CheckButton" parent="OptionsMenu/VBoxContainer2"]
+margin_top = 92.0
+margin_right = 211.0
+margin_bottom = 134.0
+text = "Fullscreen"
+
+[node name="Back" type="Button" parent="OptionsMenu/VBoxContainer2"]
+margin_top = 138.0
+margin_right = 211.0
+margin_bottom = 165.0
+text = "Back"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Fade"
+anims/Fade = SubResource( 7 )
+anims/RESET = SubResource( 8 )
+
 [connection signal="pressed" from="VBoxContainer/StatButton" to="." method="_on_StatButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="StatMenu/VBoxContainer7/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="StatMenu/VBoxContainer7/ClearButton" to="." method="_on_ClearButton_pressed"]
+[connection signal="toggled" from="OptionsMenu/VBoxContainer2/Music" to="." method="_on_Music_toggled"]
+[connection signal="toggled" from="OptionsMenu/VBoxContainer2/SFX" to="." method="_on_SFX_toggled"]
+[connection signal="toggled" from="OptionsMenu/VBoxContainer2/Fullscreen" to="." method="_on_Fullscreen_toggled"]
+[connection signal="pressed" from="OptionsMenu/VBoxContainer2/Back" to="." method="_on_BackButton_pressed"]

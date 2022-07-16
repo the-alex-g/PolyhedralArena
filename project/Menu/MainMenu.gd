@@ -11,16 +11,26 @@ const NAMES := [
 ]
 
 onready var _stat_menu = $StatMenu as Panel
+onready var _options_menu = $OptionsMenu as Panel
+onready var _stat_button = $VBoxContainer/StatButton as Button
 
 var _config = ConfigFile.new()
+var _music := AudioServer.get_bus_index("Music")
+var _sfx := AudioServer.get_bus_index("SFX")
 
 func _ready()->void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	_stat_button.grab_focus()
 	_stat_menu.visible = false
+	_options_menu.visible = false
 	var err = _config.load(CONFIGPATH)
 	if err != OK:
 		print("could not load config")
 		return
 	_update_stats()
+	$OptionsMenu/VBoxContainer2/Music.pressed = !AudioServer.is_bus_mute(_music)
+	$OptionsMenu/VBoxContainer2/SFX.pressed = !AudioServer.is_bus_mute(_sfx)
+	$OptionsMenu/VBoxContainer2/Fullscreen.pressed = OS.window_fullscreen
 
 
 func _update_stats()->void:
@@ -33,10 +43,13 @@ func _update_stats()->void:
 
 func _on_StatButton_pressed()->void:
 	_stat_menu.visible = true
+	$StatMenu/VBoxContainer7/BackButton.grab_focus()
 
 
 func _on_BackButton_pressed()->void:
 	_stat_menu.visible = false
+	_options_menu.visible = false
+	_stat_button.grab_focus()
 
 
 func _on_ClearButton_pressed()->void:
@@ -51,3 +64,20 @@ func _on_ClearButton_pressed()->void:
 func _on_PlayButton_pressed()->void:
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Main/Main.tscn")
+
+
+func _on_Options_pressed()->void:
+	_options_menu.visible = true
+	$OptionsMenu/VBoxContainer2/Music.grab_focus()
+
+
+func _on_Music_toggled(button_pressed:bool)->void:
+	AudioServer.set_bus_mute(_music, !button_pressed)
+
+
+func _on_SFX_toggled(button_pressed:bool)->void:
+	AudioServer.set_bus_mute(_sfx, !button_pressed)
+
+
+func _on_Fullscreen_toggled(button_pressed:bool)->void:
+	OS.window_fullscreen = button_pressed

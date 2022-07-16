@@ -3,4 +3,5 @@
 [ext_resource path="res://Effects/VariableAudio.gd" type="Script" id=1]
 
 [node name="VariableAudio" type="AudioStreamPlayer3D"]
+bus = "SFX"
 script = ExtResource( 1 )

@@ -74,6 +74,7 @@ autostart = true
 stream = ExtResource( 7 )
 volume_db = -6.0
 autoplay = true
+bus = "Music"
 
 [connection signal="update_health" from="PlayerDie" to="." method="_on_PlayerDie_update_health"]
 [connection signal="update_power" from="PlayerDie" to="." method="_on_PlayerDie_update_power"]

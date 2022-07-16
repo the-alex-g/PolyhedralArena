@@ -16,7 +16,6 @@ func _ready()->void:
 	# make sure the health die has six facing the camera
 	_health_animator.play("RESET")
 	_game_over_display.visible = false
-	
 
 
 func _set_time(value:int)->void:
@@ -46,6 +45,7 @@ func display_game_over(best_time:int, most_kills:int)->void:
 	$GameOverDisplay/VBoxContainer/Kills.text = "Kills: " + str(kills)
 	$GameOverDisplay/VBoxContainer/BestTime.text = "Best Time: " + str(best_time)
 	$GameOverDisplay/VBoxContainer/MostKills.text = "Most Kills: " + str(most_kills)
+	$GameOverDisplay/VBoxContainer/PlayAgain.grab_focus()
 
 
 func _on_PlayAgain_pressed()->void:
