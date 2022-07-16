@@ -44,7 +44,7 @@ transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -17, 5, 30 
 transform = Transform( -0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 17, 5, 30 )
 
 [node name="Spatial" parent="Walls/StaticBody5" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.09187, 0, -0.362305 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1724, 0, -0.26765 )
 
 [node name="StaticBody6" parent="Walls" instance=ExtResource( 2 )]
 transform = Transform( 0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -17, 5, -30 )

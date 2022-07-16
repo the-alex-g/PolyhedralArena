@@ -63,4 +63,5 @@ func _on_DamageTimer_timeout()->void:
 	if _health <= 0:
 		return
 	_health -= 1
+	$VariableAudio.play()
 	emit_signal("update_health", _health)

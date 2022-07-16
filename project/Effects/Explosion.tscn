@@ -31,3 +31,4 @@ script = ExtResource( 3 )
 [node name="VariableAudio" parent="." instance=ExtResource( 1 )]
 stream = ExtResource( 2 )
 unit_db = 1.0
+autoplay = true

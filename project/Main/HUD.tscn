@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Main/HUD.gd" type="Script" id=1]
 [ext_resource path="res://WhitePips.png" type="Texture" id=2]
 [ext_resource path="res://Styles/theme.tres" type="Theme" id=3]
 [ext_resource path="res://Font/display.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Font/font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Target.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=4]
 resource_name = "1"
@@ -234,6 +235,7 @@ modulate = Color( 1, 0.819608, 0, 1 )
 texture = SubResource( 19 )
 
 [node name="GameOverDisplay" type="Panel" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -283,6 +285,18 @@ margin_top = 115.0
 margin_right = 116.0
 margin_bottom = 142.0
 text = "Main Menu"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+texture = ExtResource( 6 )
+stretch_mode = 4
 
 [connection signal="pressed" from="GameOverDisplay/VBoxContainer/PlayAgain" to="." method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="GameOverDisplay/VBoxContainer/MainMenu" to="." method="_on_MainMenu_pressed"]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Dice/Die.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Dice/PlayerDie.gd" type="Script" id=2]
 [ext_resource path="res://Materials/LegMaterial.tres" type="Material" id=3]
+[ext_resource path="res://Effects/VariableAudio.tscn" type="PackedScene" id=4]
+[ext_resource path="res://SFX/Hurt.wav" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -184,6 +186,11 @@ wait_time = 0.5
 
 [node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
 shape = SubResource( 3 )
+
+[node name="VariableAudio" parent="." index="12" instance=ExtResource( 4 )]
+stream = ExtResource( 5 )
+unit_db = 2.0
+autoplay = false
 
 [connection signal="timeout" from="DamageTimer" to="." method="_on_DamageTimer_timeout"]
 [connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

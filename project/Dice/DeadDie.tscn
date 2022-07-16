@@ -31,6 +31,7 @@ material_override = SubResource( 4 )
 
 [node name="VariableAudio" parent="." instance=ExtResource( 3 )]
 stream = ExtResource( 4 )
+autoplay = true
 delay = 0.1
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
