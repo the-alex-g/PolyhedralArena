@@ -1,6 +1,102 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Main/HUD.gd" type="Script" id=1]
+[ext_resource path="res://Dice/SixSidedDie.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Animation" id=4]
+resource_name = "1"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ViewportContainer/Viewport/Die:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 270, 180, 0 ), Vector3( 270, 90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "2"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ViewportContainer/Viewport/Die:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 180, 180, 0 ), Vector3( 270, 180, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "3"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("ViewportContainer/Viewport/Die:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 180, 0 ), Vector3( 180, 180, 0 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "4"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("ViewportContainer/Viewport/Die:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 90 ), Vector3( 0, 180, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "5"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("ViewportContainer/Viewport/Die:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, 90 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ViewportContainer/Viewport/Die:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ) ]
+}
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -26,3 +122,25 @@ margin_right = 20.0
 margin_bottom = 14.0
 grow_horizontal = 2
 align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/1 = SubResource( 4 )
+anims/2 = SubResource( 5 )
+anims/3 = SubResource( 6 )
+anims/4 = SubResource( 1 )
+anims/5 = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 100, 100 )
+transparent_bg = true
+
+[node name="Camera" type="Camera" parent="ViewportContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30.7555, 0 )
+
+[node name="Die" parent="ViewportContainer/Viewport" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -30.7555, -1.31825 )

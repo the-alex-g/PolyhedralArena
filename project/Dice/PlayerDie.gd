@@ -2,6 +2,7 @@ class_name Player
 extends KinematicBody
 
 signal update_power(new_percentage)
+signal update_health(new_value)
 
 onready var _damage_timer = $DamageTimer as Timer
 onready var _arm_animator = $ArmAnimator as AnimationPlayer
@@ -58,4 +59,4 @@ func _on_Area_body_entered(body:PhysicsBody)->void:
 
 func _on_DamageTimer_timeout()->void:
 	_health -= 1
-	print("ouch")
+	emit_signal("update_health", _health)

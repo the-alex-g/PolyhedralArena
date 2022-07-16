@@ -38,3 +38,7 @@ func _on_GameTimer_timeout()->void:
 
 func _on_PlayerDie_update_power(new_percentage:float)->void:
 	_hud.percent_powered = new_percentage
+
+
+func _on_PlayerDie_update_health(new_value:int)->void:
+	_hud.health = new_value
