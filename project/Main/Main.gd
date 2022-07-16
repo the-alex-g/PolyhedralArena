@@ -1,5 +1,7 @@
 extends Spatial
 
+signal game_over
+
 const CONFIGPATH := "user://polyarena.cfg"
 
 onready var _spawns = $Spawns as Spatial
@@ -16,8 +18,6 @@ func _ready()->void:
 	var err := _config.load(CONFIGPATH)
 	if err != OK:
 		print("could not load config")
-	_config.set_value("Records", "most_kills", 0)
-	_config.set_value("Records", "best_time", 0)
 
 
 func _on_SpawnTimer_timeout()->void:
@@ -49,7 +49,13 @@ func _on_PlayerDie_update_health(new_value:int)->void:
 	if new_value <= 0:
 		if _kills > _config.get_value("Records", "most_kills"):
 			_config.set_value("Records", "most_kills", _kills)
+			# warning-ignore:return_value_discarded
+			_config.save(CONFIGPATH)
 		if _time_elapsed > _config.get_value("Records", "best_time"):
 			_config.set_value("Records", "best_time", _time_elapsed)
-	# warning-ignore:return_value_discarded
-		_config.save(CONFIGPATH)
+			# warning-ignore:return_value_discarded
+			_config.save(CONFIGPATH)
+		_hud.display_game_over(_kills, _config.get_value("Records", "best_time"), _config.get_value("Records", "most_kills"))
+		emit_signal("game_over")
+		$SpawnTimer.stop()
+		$GameTimer.stop()

@@ -3,6 +3,7 @@ extends CanvasLayer
 onready var _time_display = $Label as Label
 onready var _power_display = $ProgressBar as ProgressBar
 onready var _health_animator = $AnimationPlayer as AnimationPlayer
+onready var _game_over_display = $GameOverDisplay as Panel
 
 var time := 0 setget _set_time
 var percent_powered := 0.0 setget _set_power
@@ -12,6 +13,7 @@ var health := 6 setget _set_health
 func _ready()->void:
 	# make sure the health die has six facing the camera
 	_health_animator.play("RESET")
+	_game_over_display.visible = false
 
 
 func _set_time(value:int)->void:
@@ -28,3 +30,21 @@ func _set_health(value:int)->void:
 	health = value
 	if health > 0:
 		_health_animator.play(str(health))
+
+
+func display_game_over(kills:int, best_time:int, most_kills:int)->void:
+	_game_over_display.visible = true
+	$GameOverDisplay/VBoxContainer/Time.text = "Time: " + str(time)
+	$GameOverDisplay/VBoxContainer/Kills.text = "Kills: " + str(kills)
+	$GameOverDisplay/VBoxContainer/BestTime.text = "Best Time: " + str(best_time)
+	$GameOverDisplay/VBoxContainer/MostKills.text = "Most Kills: " + str(most_kills)
+
+
+func _on_PlayAgain_pressed()->void:
+	# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://Main/Main.tscn")
+
+
+func _on_MainMenu_pressed()->void:
+	# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://Menu/MainMenu.tscn")

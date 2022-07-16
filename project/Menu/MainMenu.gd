@@ -26,7 +26,7 @@ func _ready()->void:
 func _update_stats()->void:
 	for name in NAMES:
 		var label = $StatMenu.find_node(name.capitalize()) as Label
-		label.text = name.capitalize() + ":\n" + str(_config.get_value("EnemiesKilled", name))
+		label.text = name.capitalize() + ": " + str(_config.get_value("EnemiesKilled", name))
 	$StatMenu/VBoxContainer8/BestTime.text = "Best Time: " + str(_config.get_value("Records", "best_time"))
 	$StatMenu/VBoxContainer8/MostKills.text = "Most Kills: " + str(_config.get_value("Records", "most_kills"))
 

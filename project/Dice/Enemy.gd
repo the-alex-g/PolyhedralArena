@@ -28,6 +28,7 @@ onready var _body = $CSGBox as CSGBox
 
 var level := 0 setget _set_level
 var target : KinematicBody
+var _game_over := false
 
 
 func _ready()->void:
@@ -36,11 +37,15 @@ func _ready()->void:
 
 
 func _physics_process(delta:float)->void:
+	if _game_over:
+		return
 	# warning-ignore:return_value_discarded
 	move_and_collide(Vector3.BACK.rotated(Vector3.UP, rotation.y + PI) * speed * delta)
 
 
 func hit(damage:int)->void:
+	if _game_over:
+		return
 	if level - damage <= 0:
 		emit_signal("killed", LEVEL_TO_NAME[level])
 	var dead_die = load("res://Dice/DeadDie.tscn").instance() as RigidBody
@@ -73,4 +78,11 @@ func _set_level(value:int)->void:
 
 
 func _on_AimTimer_timeout()->void:
+	if _game_over:
+		return
 	look_at(target.translation, Vector3.UP)
+
+
+func _on_Main_game_over()->void:
+	_game_over = true
+	_legs.stop()

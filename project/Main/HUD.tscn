@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Main/HUD.gd" type="Script" id=1]
 [ext_resource path="res://WhitePips.png" type="Texture" id=2]
+[ext_resource path="res://theme.tres" type="Theme" id=3]
 
 [sub_resource type="Animation" id=4]
 resource_name = "1"
@@ -214,3 +215,59 @@ texture = SubResource( 18 )
 transform = Transform( 0.999994, 0.00154872, -0.00322254, -0.00155038, 0.999999, -0.000516385, 0.00322174, 0.000521356, 0.999995, -0.00236773, 0.0022974, -0.50841 )
 modulate = Color( 1, 0.819608, 0, 1 )
 texture = SubResource( 19 )
+
+[node name="GameOverDisplay" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.0
+margin_top = -110.0
+margin_right = 75.0
+margin_bottom = 110.0
+theme = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverDisplay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -46.0
+margin_right = 20.0
+margin_bottom = 46.0
+grow_horizontal = 2
+
+[node name="Time" type="Label" parent="GameOverDisplay/VBoxContainer"]
+margin_right = 92.0
+margin_bottom = 20.0
+
+[node name="Kills" type="Label" parent="GameOverDisplay/VBoxContainer"]
+margin_top = 24.0
+margin_right = 92.0
+margin_bottom = 44.0
+
+[node name="BestTime" type="Label" parent="GameOverDisplay/VBoxContainer"]
+margin_top = 48.0
+margin_right = 92.0
+margin_bottom = 68.0
+
+[node name="MostKills" type="Label" parent="GameOverDisplay/VBoxContainer"]
+margin_top = 72.0
+margin_right = 92.0
+margin_bottom = 92.0
+
+[node name="PlayAgain" type="Button" parent="GameOverDisplay/VBoxContainer"]
+margin_top = 96.0
+margin_right = 92.0
+margin_bottom = 122.0
+text = "Play Again"
+
+[node name="MainMenu" type="Button" parent="GameOverDisplay/VBoxContainer"]
+margin_top = 126.0
+margin_right = 92.0
+margin_bottom = 152.0
+text = "Main Menu"
+
+[connection signal="pressed" from="GameOverDisplay/VBoxContainer/PlayAgain" to="." method="_on_PlayAgain_pressed"]
+[connection signal="pressed" from="GameOverDisplay/VBoxContainer/MainMenu" to="." method="_on_MainMenu_pressed"]

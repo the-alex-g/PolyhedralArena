@@ -16,6 +16,8 @@ var _colliding_with_enemy := false
 var _health := 6
 
 func _physics_process(delta:float)->void:
+	if _health <= 0:
+		return
 	rotation_degrees.y += Input.get_axis("turn_right", "turn_left") * 2
 	var direction := Vector3(Input.get_axis("right", "left"), 0, Input.get_axis("backward", "forward")).rotated(Vector3.UP, rotation.y)
 	# warning-ignore:return_value_discarded
@@ -58,5 +60,7 @@ func _on_Area_body_entered(body:PhysicsBody)->void:
 
 
 func _on_DamageTimer_timeout()->void:
+	if _health <= 0:
+		return
 	_health -= 1
 	emit_signal("update_health", _health)
