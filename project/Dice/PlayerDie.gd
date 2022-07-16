@@ -24,7 +24,8 @@ func _physics_process(delta:float)->void:
 		_set_power(_percent_powered + delta)
 	if Input.is_action_just_released("throw"):
 		_arm_animator.play("Throw")
-	_check_for_damage()
+	if _colliding_with_enemy:
+		_check_for_damage()
 
 
 func throw()->void:
@@ -32,8 +33,7 @@ func throw()->void:
 	bomb.global_transform = _bomb_spawn_point.global_transform
 	get_parent().add_child(bomb)
 	bomb.apply_central_impulse(Vector3.BACK.rotated(Vector3.UP, rotation.y) * 60 * _percent_powered)
-	if _colliding_with_enemy:
-		_set_power(0.0)
+	_set_power(0.0)
 
 
 func _check_for_damage()->void:
