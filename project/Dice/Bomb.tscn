@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Dice/Bomb.gd" type="Script" id=1]
 [ext_resource path="res://Dice/SixSidedDie.tscn" type="PackedScene" id=2]
 [ext_resource path="res://SFX/Dice.wav" type="AudioStream" id=3]
+[ext_resource path="res://Effects/VariableAudio.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PhysicsMaterial" id=3]
 bounce = 0.6
@@ -42,8 +43,8 @@ shape = SubResource( 2 )
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0 )
 material_override = SubResource( 4 )
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="VariableAudio" parent="." instance=ExtResource( 4 )]
 stream = ExtResource( 3 )
-autoplay = true
+delay = 0.1
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
