@@ -10,4 +10,8 @@ func _on_Timer_timeout()->void:
 	explosion.translation = translation
 	get_parent().add_child(explosion)
 	explosion.emitting = true
+	var floating_text = load("res://Effects/FloatingText.tscn").instance()
+	floating_text.translation = translation
+	get_parent().add_child(floating_text)
+	floating_text.set_deferred("text", str(damage))
 	queue_free()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Main/HUD.gd" type="Script" id=1]
 [ext_resource path="res://WhitePips.png" type="Texture" id=2]
-[ext_resource path="res://theme.tres" type="Theme" id=3]
+[ext_resource path="res://Styles/theme.tres" type="Theme" id=3]
 [ext_resource path="res://Font/display.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Font/font.tres" type="DynamicFont" id=5]
 
 [sub_resource type="Animation" id=4]
 resource_name = "1"
@@ -168,7 +169,7 @@ margin_top = 10.0
 margin_right = -10.0
 margin_bottom = 39.0
 grow_horizontal = 0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 5 )
 text = "0"
 align = 1
 
@@ -244,44 +245,42 @@ theme = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameOverDisplay"]
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -46.0
-margin_right = 20.0
-margin_bottom = 46.0
+margin_left = -45.0
+margin_top = 30.0
+margin_right = 45.0
+margin_bottom = 160.0
 grow_horizontal = 2
 
 [node name="Time" type="Label" parent="GameOverDisplay/VBoxContainer"]
-margin_right = 92.0
+margin_right = 90.0
 margin_bottom = 20.0
 
 [node name="Kills" type="Label" parent="GameOverDisplay/VBoxContainer"]
 margin_top = 24.0
-margin_right = 92.0
+margin_right = 90.0
 margin_bottom = 44.0
 
 [node name="BestTime" type="Label" parent="GameOverDisplay/VBoxContainer"]
 margin_top = 48.0
-margin_right = 92.0
+margin_right = 90.0
 margin_bottom = 68.0
 
 [node name="MostKills" type="Label" parent="GameOverDisplay/VBoxContainer"]
 margin_top = 72.0
-margin_right = 92.0
+margin_right = 90.0
 margin_bottom = 92.0
 
 [node name="PlayAgain" type="Button" parent="GameOverDisplay/VBoxContainer"]
 margin_top = 96.0
-margin_right = 92.0
-margin_bottom = 122.0
+margin_right = 90.0
+margin_bottom = 126.0
 text = "Play Again"
 
 [node name="MainMenu" type="Button" parent="GameOverDisplay/VBoxContainer"]
-margin_top = 126.0
-margin_right = 92.0
-margin_bottom = 152.0
+margin_top = 130.0
+margin_right = 90.0
+margin_bottom = 160.0
 text = "Main Menu"
 
 [connection signal="pressed" from="GameOverDisplay/VBoxContainer/PlayAgain" to="." method="_on_PlayAgain_pressed"]

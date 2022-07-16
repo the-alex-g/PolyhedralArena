@@ -16,6 +16,7 @@ func _ready()->void:
 	# make sure the health die has six facing the camera
 	_health_animator.play("RESET")
 	_game_over_display.visible = false
+	
 
 
 func _set_time(value:int)->void:
