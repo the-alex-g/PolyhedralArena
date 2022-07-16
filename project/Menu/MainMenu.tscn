@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Menu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Font/Bungee-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Styles/theme.tres" type="Theme" id=3]
 [ext_resource path="res://ColoredFaces.png" type="Texture" id=4]
 [ext_resource path="res://Font/display.tres" type="DynamicFont" id=5]
+[ext_resource path="res://SFX/MainLoop.ogg" type="AudioStream" id=6]
+[ext_resource path="res://SFX/Click.wav" type="AudioStream" id=7]
 
 [sub_resource type="DynamicFont" id=9]
 size = 64
@@ -402,6 +404,16 @@ text = "Back"
 autoplay = "Fade"
 anims/Fade = SubResource( 7 )
 anims/RESET = SubResource( 8 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+bus = "Music"
+
+[node name="Clicked" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = 1.0
+bus = "SFX"
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/StatButton" to="." method="_on_StatButton_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Main/HUD.gd" type="Script" id=1]
 [ext_resource path="res://WhitePips.png" type="Texture" id=2]
@@ -6,6 +6,34 @@
 [ext_resource path="res://Font/display.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Font/font.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Target.png" type="Texture" id=6]
+[ext_resource path="res://SFX/Click.wav" type="AudioStream" id=7]
+
+[sub_resource type="Animation" id=21]
+resource_name = "0"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ViewportContainer:margin_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 700.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ViewportContainer/Viewport/Die:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, -180 ), Vector3( 74.358, 392.857, -534.624 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "1"
@@ -101,6 +129,54 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 0, -90, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("ViewportContainer/Viewport/Die:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -30.7555, -1.31825 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ViewportContainer:margin_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 40.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ViewportContainer:margin_bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 40.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ViewportContainer:margin_top")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
 
 [sub_resource type="SpatialMaterial" id=20]
 albedo_color = Color( 0, 0, 0, 1 )
@@ -176,6 +252,7 @@ text = "0"
 align = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/0 = SubResource( 21 )
 anims/1 = SubResource( 4 )
 anims/2 = SubResource( 5 )
 anims/3 = SubResource( 6 )
@@ -297,6 +374,11 @@ margin_right = 20.0
 margin_bottom = 20.0
 texture = ExtResource( 6 )
 stretch_mode = 4
+
+[node name="Clicked" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = 1.0
+bus = "SFX"
 
 [connection signal="pressed" from="GameOverDisplay/VBoxContainer/PlayAgain" to="." method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="GameOverDisplay/VBoxContainer/MainMenu" to="." method="_on_MainMenu_pressed"]

@@ -5,6 +5,7 @@ onready var _kill_display = $Kills as Label
 onready var _power_display = $ProgressBar as ProgressBar
 onready var _health_animator = $AnimationPlayer as AnimationPlayer
 onready var _game_over_display = $GameOverDisplay as Panel
+onready var _click_sound = $Clicked as AudioStreamPlayer
 
 var time := 0 setget _set_time
 var percent_powered := 0.0 setget _set_power
@@ -30,7 +31,7 @@ func _set_power(value:float)->void:
 
 func _set_health(value:int)->void:
 	health = value
-	if health > 0:
+	if health >= 0:
 		_health_animator.play(str(health))
 
 
@@ -51,8 +52,10 @@ func display_game_over(best_time:int, most_kills:int)->void:
 func _on_PlayAgain_pressed()->void:
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Main/Main.tscn")
+	_click_sound.play()
 
 
 func _on_MainMenu_pressed()->void:
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Menu/MainMenu.tscn")
+	_click_sound.play()

@@ -14,6 +14,7 @@ onready var _stat_menu = $StatMenu as Panel
 onready var _options_menu = $OptionsMenu as Panel
 onready var _instrux = $InstruxDisplay as Panel
 onready var _stat_button = $VBoxContainer/StatButton as Button
+onready var _click_sound = $Clicked as AudioStreamPlayer
 
 var _config = ConfigFile.new()
 var _music := AudioServer.get_bus_index("Music")
@@ -49,11 +50,13 @@ func _update_stats()->void:
 func _on_StatButton_pressed()->void:
 	_stat_menu.visible = true
 	$StatMenu/VBoxContainer7/BackButton.grab_focus()
+	_click_sound.play()
 
 
 func _on_BackButton_pressed()->void:
 	_hide_menus()
 	$VBoxContainer/StatButton.grab_focus()
+	_click_sound.play()
 
 
 func _on_ClearButton_pressed()->void:
@@ -63,44 +66,54 @@ func _on_ClearButton_pressed()->void:
 	_config.set_value("Records", "most_kills", 0)
 	_config.save(CONFIGPATH)
 	_update_stats()
+	_click_sound.play()
 
 
 func _on_PlayButton_pressed()->void:
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Main/Main.tscn")
+	_click_sound.play()
 
 
 func _on_Options_pressed()->void:
 	_options_menu.visible = true
 	$OptionsMenu/VBoxContainer2/Music.grab_focus()
+	_click_sound.play()
 
 
 func _on_Music_toggled(button_pressed:bool)->void:
 	AudioServer.set_bus_mute(_music, !button_pressed)
+	_click_sound.play()
 
 
 func _on_SFX_toggled(button_pressed:bool)->void:
 	AudioServer.set_bus_mute(_sfx, !button_pressed)
+	_click_sound.play()
 
 
 func _on_Fullscreen_toggled(button_pressed:bool)->void:
 	OS.window_fullscreen = button_pressed
+	_click_sound.play()
 
 
 func _on_QuitButton_pressed()->void:
 	get_tree().quit()
+	_click_sound.play()
 
 
 func _on_InstruxButton_pressed()->void:
 	_instrux.visible = true
 	$InstruxDisplay/VBoxContainer/BackButton.grab_focus()
+	_click_sound.play()
 
 
 func _on_OptionsBack_pressed()->void:
 	_hide_menus()
 	$VBoxContainer/Options.grab_focus()
+	_click_sound.play()
 
 
 func _on_InstruxBackButton_pressed()->void:
 	_hide_menus()
 	$VBoxContainer/InstruxButton.grab_focus()
+	_click_sound.play()
