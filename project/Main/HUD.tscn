@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Main/HUD.gd" type="Script" id=1]
-[ext_resource path="res://Dice/SixSidedDie.tscn" type="PackedScene" id=2]
+[ext_resource path="res://WhitePips.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=4]
 resource_name = "1"
@@ -16,7 +16,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 270, 180, 0 ), Vector3( 270, 90, 0 ) ]
+"values": [ Vector3( 0, -90, -90 ), Vector3( 0, -90, -180 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -32,7 +32,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 180, 180, 0 ), Vector3( 270, 180, 0 ) ]
+"values": [ Vector3( 0, 0, -90 ), Vector3( 0, -90, -90 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -48,12 +48,12 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 180, 0 ), Vector3( 180, 180, 0 ) ]
+"values": [ Vector3( 0, -180, 90 ), Vector3( 0, 0, -90 ) ]
 }
 
 [sub_resource type="Animation" id=1]
 resource_name = "4"
-length = 0.2
+length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("ViewportContainer/Viewport/Die:rotation_degrees")
 tracks/0/interp = 1
@@ -61,10 +61,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
+"times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, -90, 90 ), Vector3( 0, 180, 0 ) ]
+"values": [ Vector3( 0, -90, 90 ), Vector3( 0, -180, 90 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -97,6 +97,39 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 0, -90, 0 ) ]
 }
+
+[sub_resource type="SpatialMaterial" id=20]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 7
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 7
+atlas = ExtResource( 2 )
+region = Rect2( 96, 192, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 7
+atlas = ExtResource( 2 )
+region = Rect2( 96, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 7
+atlas = ExtResource( 2 )
+region = Rect2( 0, 192, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 7
+atlas = ExtResource( 2 )
+region = Rect2( 96, 96, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 7
+atlas = ExtResource( 2 )
+region = Rect2( 0, 96, 96, 96 )
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -138,9 +171,46 @@ margin_bottom = 40.0
 [node name="Viewport" type="Viewport" parent="ViewportContainer"]
 size = Vector2( 100, 100 )
 transparent_bg = true
+handle_input_locally = false
+render_target_v_flip = true
+render_target_update_mode = 3
 
 [node name="Camera" type="Camera" parent="ViewportContainer/Viewport"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30.7555, 0 )
 
-[node name="Die" parent="ViewportContainer/Viewport" instance=ExtResource( 2 )]
+[node name="Die" type="CSGBox" parent="ViewportContainer/Viewport"]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -30.7555, -1.31825 )
+material_override = SubResource( 20 )
+width = 1.0
+height = 1.0
+depth = 1.0
+
+[node name="Sprite3D" type="Sprite3D" parent="ViewportContainer/Viewport/Die"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.51, 0, 0 )
+modulate = Color( 0.207843, 0.854902, 0, 1 )
+texture = SubResource( 14 )
+
+[node name="Sprite3D2" type="Sprite3D" parent="ViewportContainer/Viewport/Die"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.51, 0, 0 )
+modulate = Color( 1, 0, 0, 1 )
+texture = SubResource( 15 )
+
+[node name="Sprite3D3" type="Sprite3D" parent="ViewportContainer/Viewport/Die"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.51, 0 )
+modulate = Color( 0.898039, 1, 0, 1 )
+texture = SubResource( 16 )
+
+[node name="Sprite3D4" type="Sprite3D" parent="ViewportContainer/Viewport/Die"]
+transform = Transform( 0.999997, -0.00217941, -0.00104763, -0.00104839, -0.000349831, -0.999999, 0.00217904, 0.999998, -0.000352111, 2.50205e-09, 0.51, 0 )
+modulate = Color( 1, 0.282353, 0, 1 )
+texture = SubResource( 17 )
+
+[node name="Sprite3D5" type="Sprite3D" parent="ViewportContainer/Viewport/Die"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.51 )
+modulate = Color( 1, 0.607843, 0, 1 )
+texture = SubResource( 18 )
+
+[node name="Sprite3D6" type="Sprite3D" parent="ViewportContainer/Viewport/Die"]
+transform = Transform( 0.999994, 0.00154872, -0.00322254, -0.00155038, 0.999999, -0.000516385, 0.00322174, 0.000521356, 0.999995, -0.00236773, 0.0022974, -0.50841 )
+modulate = Color( 1, 0.819608, 0, 1 )
+texture = SubResource( 19 )
