@@ -1,7 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Font/display.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Font/Bungee-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Effects/FloatingText.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
@@ -65,7 +71,7 @@ render_target_v_flip = true
 margin_right = 100.0
 margin_bottom = 100.0
 custom_colors/font_color = Color( 1, 0, 0, 1 )
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "1"
 align = 1
 valign = 1

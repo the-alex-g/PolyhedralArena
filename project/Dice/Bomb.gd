@@ -9,7 +9,6 @@ func _on_Timer_timeout()->void:
 	var explosion = load("res://Effects/Explosion.tscn").instance()
 	explosion.translation = translation
 	get_parent().add_child(explosion)
-	explosion.emitting = true
 	var floating_text = load("res://Effects/FloatingText.tscn").instance()
 	floating_text.translation = translation
 	get_parent().add_child(floating_text)
