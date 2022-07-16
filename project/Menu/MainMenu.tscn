@@ -104,6 +104,12 @@ margin_right = 88.0
 margin_bottom = 89.0
 text = "Play"
 
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+margin_top = 93.0
+margin_right = 88.0
+margin_bottom = 120.0
+text = "Quit"
+
 [node name="StatMenu" type="Panel" parent="."]
 visible = false
 anchor_right = 1.0
@@ -327,6 +333,7 @@ anims/RESET = SubResource( 8 )
 [connection signal="pressed" from="VBoxContainer/StatButton" to="." method="_on_StatButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
 [connection signal="pressed" from="StatMenu/VBoxContainer7/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="StatMenu/VBoxContainer7/ClearButton" to="." method="_on_ClearButton_pressed"]
 [connection signal="toggled" from="OptionsMenu/VBoxContainer2/Music" to="." method="_on_Music_toggled"]

@@ -25,8 +25,7 @@ func _ready()->void:
 	_options_menu.visible = false
 	var err = _config.load(CONFIGPATH)
 	if err != OK:
-		print("could not load config")
-		return
+		_config.save(CONFIGPATH)
 	_update_stats()
 	$OptionsMenu/VBoxContainer2/Music.pressed = !AudioServer.is_bus_mute(_music)
 	$OptionsMenu/VBoxContainer2/SFX.pressed = !AudioServer.is_bus_mute(_sfx)
@@ -81,3 +80,7 @@ func _on_SFX_toggled(button_pressed:bool)->void:
 
 func _on_Fullscreen_toggled(button_pressed:bool)->void:
 	OS.window_fullscreen = button_pressed
+
+
+func _on_QuitButton_pressed()->void:
+	get_tree().quit()

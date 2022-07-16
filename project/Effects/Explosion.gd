@@ -12,5 +12,5 @@ func _process(delta)->void:
 		queue_free()
 	if _time < 1:
 		_time += delta * speed_scale
-	var custom_color = lerp(Color.yellow, Color.red, _time)
+	var custom_color = lerp(Color.yellow, Color.orangered, _time)
 	mesh.material.albedo_color = custom_color
