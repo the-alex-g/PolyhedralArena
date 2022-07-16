@@ -54,12 +54,6 @@ tracks/0/keys = {
 transform = Transform( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0268804, -0.0222808, 0.00396037 )
-offset = Vector2( 0, 100 )
-billboard = 2
-texture = SubResource( 1 )
-
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 100, 100 )
 transparent_bg = true
@@ -74,6 +68,12 @@ custom_fonts/font = ExtResource( 1 )
 text = "1"
 align = 1
 valign = 1
+
+[node name="Sprite" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0268804, -0.0222808, 0.00396037 )
+offset = Vector2( 0, 100 )
+billboard = 2
+texture = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
