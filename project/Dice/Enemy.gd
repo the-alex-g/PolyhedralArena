@@ -41,16 +41,16 @@ func _physics_process(delta:float)->void:
 
 
 func hit(damage:int)->void:
+	print("level: ", level, " damage: ", damage)
 	if level - damage <= 0:
 		emit_signal("killed", LEVEL_TO_NAME[level])
 	var dead_die = load("res://Dice/DeadDie.tscn").instance() as RigidBody
 	dead_die.translation = translation
 	dead_die.start = LEVEL_TO_COLOR[level]
-	dead_die.player = target
-	_set_level(level - damage)
-	dead_die.level = level
-	if level > 0:
-		dead_die.end = LEVEL_TO_COLOR[level]
+	if level - damage > 0:
+		dead_die.end = LEVEL_TO_COLOR[level - damage]
+		dead_die.level = level - damage
+		dead_die.player = target
 	else:
 		dead_die.end = Color.black
 	get_parent().add_child(dead_die)

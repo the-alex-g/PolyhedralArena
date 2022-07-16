@@ -5,10 +5,11 @@ onready var _tween = $Tween as Tween
 var start : Color
 var end : Color
 var player : Player
-var level : int
+var level := 0
 
 
 func _ready()->void:
+	$Die.material_override = SpatialMaterial.new()
 	_tween.interpolate_property($Die.material_override, "albedo_color", start, end, 1, Tween.TRANS_QUAD)
 	_tween.start()
 
