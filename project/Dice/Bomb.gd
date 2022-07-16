@@ -1,5 +1,9 @@
 extends RigidBody
 
+func _ready()->void:
+	$AudioStreamPlayer3D.unit_db += randf() - 0.5
+	$AudioStreamPlayer3D.pitch_scale += randf() - 0.5
+
 
 func _on_Timer_timeout()->void:
 	var damage := (randi() % 6) + 1
