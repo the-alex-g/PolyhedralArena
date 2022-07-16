@@ -178,6 +178,7 @@ anims/Throw = SubResource( 2 )
 transform = Transform( 0.944574, 0.215304, 0.247842, 2.01166e-07, 0.754924, -0.655813, -0.328301, 0.619464, 0.713081, 0.364, 0.568503, 1.29496 )
 
 [node name="DamageTimer" type="Timer" parent="." index="10"]
+wait_time = 0.5
 
 [node name="Area" type="Area" parent="." index="11"]
 

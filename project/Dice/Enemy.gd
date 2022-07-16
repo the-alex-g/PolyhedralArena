@@ -32,6 +32,10 @@ var _game_over := false
 
 
 func _ready()->void:
+	# warning-ignore:return_value_discarded
+	connect("killed", get_parent(), "_on_enemy_killed", [], CONNECT_ONESHOT)
+	# warning-ignore:return_value_discarded
+	get_parent().connect("game_over", self, "_on_Main_game_over", [], CONNECT_ONESHOT)
 	_body.material_override = SpatialMaterial.new()
 	_legs.play("Run")
 

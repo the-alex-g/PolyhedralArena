@@ -56,7 +56,7 @@ func _set_power(value:float)->void:
 func _on_Area_body_entered(body:PhysicsBody)->void:
 	if body is Enemy:
 		_colliding_with_enemy = true
-		_damage_timer.start(1)
+		_damage_timer.start(0.5)
 
 
 func _on_DamageTimer_timeout()->void:

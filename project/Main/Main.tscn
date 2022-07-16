@@ -14,7 +14,7 @@ extents = Vector3( 40, 0.1, 40 )
 script = ExtResource( 3 )
 
 [node name="PlayerDie" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.85714, 0, -0.515083, 0, 1, 0, 0.515083, 0, 0.85714, 0, 1.72991, 0 )
+transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 26.0674, 1.72991, 0 )
 axis_lock_motion_y = false
 move_lock_y = false
 

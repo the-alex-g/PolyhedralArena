@@ -1,6 +1,7 @@
 extends CanvasLayer
 
-onready var _time_display = $Label as Label
+onready var _time_display = $Time as Label
+onready var _kill_display = $Kills as Label
 onready var _power_display = $ProgressBar as ProgressBar
 onready var _health_animator = $AnimationPlayer as AnimationPlayer
 onready var _game_over_display = $GameOverDisplay as Panel
@@ -8,6 +9,7 @@ onready var _game_over_display = $GameOverDisplay as Panel
 var time := 0 setget _set_time
 var percent_powered := 0.0 setget _set_power
 var health := 6 setget _set_health
+var kills := 0 setget _set_kills
 
 
 func _ready()->void:
@@ -32,7 +34,12 @@ func _set_health(value:int)->void:
 		_health_animator.play(str(health))
 
 
-func display_game_over(kills:int, best_time:int, most_kills:int)->void:
+func _set_kills(value:int)->void:
+	kills = value
+	_kill_display.text = str(kills)
+
+
+func display_game_over(best_time:int, most_kills:int)->void:
 	_game_over_display.visible = true
 	$GameOverDisplay/VBoxContainer/Time.text = "Time: " + str(time)
 	$GameOverDisplay/VBoxContainer/Kills.text = "Kills: " + str(kills)

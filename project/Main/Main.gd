@@ -18,9 +18,15 @@ func _ready()->void:
 	var err := _config.load(CONFIGPATH)
 	if err != OK:
 		print("could not load config")
+	yield(get_tree().create_timer(0.1), "timeout")
+	_spawn()
 
 
 func _on_SpawnTimer_timeout()->void:
+	_spawn()
+
+
+func _spawn()->void:
 	for spawn_point in _spawns.get_children():
 		spawn_point.spawn(_player)
 
@@ -33,6 +39,7 @@ func _on_enemy_killed(enemy_type:String)->void:
 	# warning-ignore:return_value_discarded
 	_config.save(CONFIGPATH)
 	_kills += 1
+	_hud.kills = _kills
 
 
 func _on_GameTimer_timeout()->void:
@@ -55,7 +62,7 @@ func _on_PlayerDie_update_health(new_value:int)->void:
 			_config.set_value("Records", "best_time", _time_elapsed)
 			# warning-ignore:return_value_discarded
 			_config.save(CONFIGPATH)
-		_hud.display_game_over(_kills, _config.get_value("Records", "best_time"), _config.get_value("Records", "most_kills"))
+		_hud.display_game_over(_config.get_value("Records", "best_time"), _config.get_value("Records", "most_kills"))
 		emit_signal("game_over")
 		$SpawnTimer.stop()
 		$GameTimer.stop()
