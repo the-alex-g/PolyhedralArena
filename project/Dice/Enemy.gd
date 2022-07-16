@@ -41,7 +41,6 @@ func _physics_process(delta:float)->void:
 
 
 func hit(damage:int)->void:
-	print("level: ", level, " damage: ", damage)
 	if level - damage <= 0:
 		emit_signal("killed", LEVEL_TO_NAME[level])
 	var dead_die = load("res://Dice/DeadDie.tscn").instance() as RigidBody
