@@ -26,11 +26,19 @@ func _ready()->void:
 	_hide_menus()
 	var err = _config.load(CONFIGPATH)
 	if err != OK:
-		_config.save(CONFIGPATH)
+		_reset_config()
 	_update_stats()
 	$OptionsMenu/VBoxContainer2/Music.pressed = !AudioServer.is_bus_mute(_music)
 	$OptionsMenu/VBoxContainer2/SFX.pressed = !AudioServer.is_bus_mute(_sfx)
 	$OptionsMenu/VBoxContainer2/Fullscreen.pressed = OS.window_fullscreen
+
+
+func _reset_config()->void:
+	for name in NAMES:
+		_config.set_value("EnemiesKilled", name, 0)
+	_config.set_value("Records", "best_time", 0)
+	_config.set_value("Records", "most_kills", 0)
+	_config.save(CONFIGPATH)
 
 
 func _hide_menus()->void:
@@ -60,11 +68,7 @@ func _on_BackButton_pressed()->void:
 
 
 func _on_ClearButton_pressed()->void:
-	for name in NAMES:
-		_config.set_value("EnemiesKilled", name, 0)
-	_config.set_value("Records", "best_time", 0)
-	_config.set_value("Records", "most_kills", 0)
-	_config.save(CONFIGPATH)
+	_reset_config()
 	_update_stats()
 	_click_sound.play()
 
