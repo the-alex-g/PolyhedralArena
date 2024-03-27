@@ -35,14 +35,13 @@ func _ready()->void:
 	connect("killed", Callable(get_parent(), "_on_enemy_killed").bind(), CONNECT_ONE_SHOT)
 	get_parent().connect("game_over", Callable(self, "_on_Main_game_over").bind(), CONNECT_ONE_SHOT)
 	_body.material_override = StandardMaterial3D.new()
-	position.y *= scale.y
 	_legs.play("Run")
 
 
 func _physics_process(delta:float)->void:
 	if _game_over:
 		return
-	# warning-ignore:return_value_discarded
+	position.y = 1.73 * scale.y
 	move_and_collide(Vector3.BACK.rotated(Vector3.UP, rotation.y + PI) * speed * delta)
 
 

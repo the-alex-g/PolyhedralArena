@@ -2,7 +2,7 @@ extends RigidBody3D
 
 
 func _on_Timer_timeout()->void:
-	var damage := (randi() % 6) + 1
+	var damage := randi_range(1, 6)
 	for body in $Area3D.get_overlapping_bodies():
 		if body is Enemy:
 			body.hit(damage)

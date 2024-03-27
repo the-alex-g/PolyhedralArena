@@ -3,7 +3,7 @@ extends CanvasLayer
 @onready var _score_display = $Score as Label
 @onready var _power_display = $ProgressBar as ProgressBar
 @onready var _health_animator = $AnimationPlayer as AnimationPlayer
-@onready var _game_over_display = $GameOverDisplay as Panel
+@onready var _game_over_display : PanelContainer = $GameOverDisplay
 
 var score := 0 : set = _set_score
 var percent_powered := 0.0: set = _set_power

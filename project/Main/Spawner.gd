@@ -25,7 +25,6 @@ func _create_enemy()->void:
 		var enemy = load("res://Dice/EnemyDie.tscn").instantiate() as Enemy
 		enemy.target = _player
 		enemy.position = position
-		enemy.position.y += 1.73
 		get_parent().get_parent().add_child(enemy)
 		enemy.set_deferred("level", enemy_level)
 		await get_tree().create_timer(0.2).timeout
