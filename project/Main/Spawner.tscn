@@ -134,5 +134,10 @@ height = 0.01
 sides = 6
 smooth_faces = false
 
+[node name="LevelUpTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
+[connection signal="timeout" from="LevelUpTimer" to="." method="_on_level_up_timer_timeout"]
