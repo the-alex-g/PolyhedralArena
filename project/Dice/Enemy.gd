@@ -1,5 +1,5 @@
 class_name Enemy
-extends KinematicBody
+extends CharacterBody3D
 
 signal killed(level_name)
 
@@ -20,23 +20,22 @@ const LEVEL_TO_COLOR := {
 	6:"FF9D00",
 }
 
-export var speed := 7
+@export var speed := 7.0
 
-onready var _face = $Face as AnimatedSprite3D
-onready var _legs = $AnimationPlayer as AnimationPlayer
-onready var _body = $CSGBox as CSGBox
+@onready var _face = $Face as AnimatedSprite3D
+@onready var _legs = $AnimationPlayer as AnimationPlayer
+@onready var _body = $CSGBox3D as CSGBox3D
 
-var level := 0 setget _set_level
-var target : KinematicBody
+var level := 0 : set = _set_level
+var target : CharacterBody3D
 var _game_over := false
 
 
 func _ready()->void:
-	# warning-ignore:return_value_discarded
-	connect("killed", get_parent(), "_on_enemy_killed", [], CONNECT_ONESHOT)
-	# warning-ignore:return_value_discarded
-	get_parent().connect("game_over", self, "_on_Main_game_over", [], CONNECT_ONESHOT)
-	_body.material_override = SpatialMaterial.new()
+	connect("killed", Callable(get_parent(), "_on_enemy_killed").bind(), CONNECT_ONE_SHOT)
+	get_parent().connect("game_over", Callable(self, "_on_Main_game_over").bind(), CONNECT_ONE_SHOT)
+	_body.material_override = StandardMaterial3D.new()
+	position.y *= scale.y
 	_legs.play("Run")
 
 
@@ -52,15 +51,15 @@ func hit(damage:int)->void:
 		return
 	if level - damage <= 0:
 		emit_signal("killed", LEVEL_TO_NAME[level])
-	var dead_die = load("res://Dice/DeadDie.tscn").instance() as RigidBody
-	dead_die.translation = translation
+	var dead_die : RigidBody3D = load("res://Dice/DeadDie.tscn").instantiate()
+	dead_die.position = position
 	dead_die.start = LEVEL_TO_COLOR[level]
 	if level - damage > 0:
 		dead_die.end = LEVEL_TO_COLOR[level - damage]
 		dead_die.level = level - damage
 		dead_die.player = target
 	else:
-		dead_die.end = Color.black
+		dead_die.end = Color.BLACK
 	get_parent().add_child(dead_die)
 	var twist := Vector3.ZERO
 	match randi() % 3:
@@ -70,7 +69,7 @@ func hit(damage:int)->void:
 			twist.y = randf()
 		2:
 			twist.z = randf()
-	dead_die.apply_impulse(twist, Vector3.BACK.rotated(Vector3.UP, rotation.y) * 50)
+	dead_die.apply_impulse(Vector3.BACK.rotated(Vector3.UP, rotation.y) * 50, twist)
 	queue_free()
 
 
@@ -79,12 +78,14 @@ func _set_level(value:int)->void:
 	if level > 0:
 		_body.material_override.albedo_color = LEVEL_TO_COLOR[level]
 		_face.play(LEVEL_TO_NAME[level])
+		scale = Vector3.ONE * (0.7 + level / 10.0)
+		speed = 8.5 - (level / 2.0)
 
 
 func _on_AimTimer_timeout()->void:
 	if _game_over:
 		return
-	look_at(target.translation, Vector3.UP)
+	look_at(target.position, Vector3.UP)
 
 
 func _on_Main_game_over()->void:

@@ -3,22 +3,22 @@
 [ext_resource path="res://Dice/SixSidedDie.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Materials/Steel.tres" type="Material" id=3]
 
-[node name="Sconce" type="Spatial"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+[node name="Sconce" type="Node3D"]
+transform = Transform3D( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 
-[node name="CSGBox" type="CSGBox" parent="."]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 width = 0.1
 height = 0.2
 depth = 0.4
 material = ExtResource( 3 )
 
-[node name="CSGCylinder" type="CSGCylinder" parent="CSGBox"]
-transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0.2 )
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D"]
+transform = Transform3D( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0.2 )
 radius = 0.2
 sides = 6
 cone = true
 material = ExtResource( 3 )
 
-[node name="Die" parent="CSGBox/CSGCylinder" instance=ExtResource( 1 )]
-transform = Transform( 0.264543, 0.00412528, 0.3, 0.222668, 0.265366, -0.2, -0.201087, 0.299273, 0.173205, 6.15888e-09, -0.846606, 8.9407e-08 )
+[node name="Die" parent="CSGBox3D/CSGCylinder3D" instance=ExtResource( 1 )]
+transform = Transform3D( 0.264543, 0.00412528, 0.3, 0.222668, 0.265366, -0.2, -0.201087, 0.299273, 0.173205, 6.15888e-09, -0.846606, 8.9407e-08 )

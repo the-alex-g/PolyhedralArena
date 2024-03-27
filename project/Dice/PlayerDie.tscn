@@ -1,196 +1,365 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=3 uid="uid://cghbx6874tgt6"]
 
-[ext_resource path="res://Dice/Die.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Dice/PlayerDie.gd" type="Script" id=2]
-[ext_resource path="res://Materials/LegMaterial.tres" type="Material" id=3]
-[ext_resource path="res://Effects/VariableAudio.tscn" type="PackedScene" id=4]
-[ext_resource path="res://SFX/Hurt.wav" type="AudioStream" id=5]
+[ext_resource type="PackedScene" path="res://Dice/Die.tscn" id="1"]
+[ext_resource type="Script" path="res://Dice/PlayerDie.gd" id="2"]
+[ext_resource type="Material" path="res://Materials/LegMaterial.tres" id="3"]
+[ext_resource type="PackedScene" path="res://Effects/VariableAudio.tscn" id="4"]
+[ext_resource type="AudioStream" uid="uid://bbcnu5qujvxuw" path="res://SFX/Hurt.wav" id="5"]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="Animation_7uox7"]
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftThighJoint:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-33.622, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightThighJoint:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-33.622, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftThighJoint/Thigh/LeftKneeJoint:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(59.924, 180, 180)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LeftThighJoint/Thigh/LeftKneeJoint/Shin/LeftAnkleJoint:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-119.309, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RightThighJoint/Thigh/RightKneeJoint:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(120.076, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RightThighJoint/Thigh/RightKneeJoint/Shin/RightAnkleJoint:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-119.309, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jrjiy"]
+resource_name = "Run"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LeftThighJoint:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-33.622, 0, 0), Vector3(-58.084, 0, 0), Vector3(-33.622, 0, 0), Vector3(-8.422, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RightThighJoint:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-33.622, 0, 0), Vector3(-8.11, 0, 0), Vector3(-63.058, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LeftThighJoint/Thigh/LeftKneeJoint:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(59.924, 180, 180), Vector3(88.743, -0.000114427, -0.000113725), Vector3(36.883, 180, 180)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LeftThighJoint/Thigh/LeftKneeJoint/Shin/LeftAnkleJoint:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-119.309, 0, 0), Vector3(-86.072, 0, 0), Vector3(-119.309, 0, 0), Vector3(-79.414, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RightThighJoint/Thigh/RightKneeJoint:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(120.076, 0, 0), Vector3(135.069, 0, 0), Vector3(120.076, 0, 0), Vector3(87.601, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RightThighJoint/Thigh/RightKneeJoint/Shin/RightAnkleJoint:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-119.309, 0, 0), Vector3(-73.527, 0, 0), Vector3(-119.309, 0, 0), Vector3(-87.448, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uf6fk"]
+_data = {
+"RESET": SubResource("Animation_7uox7"),
+"Run": SubResource("Animation_jrjiy")
+}
+
+[sub_resource type="Animation" id="1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("LeftShoulderJoint:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector3( -24.661, 0, 0 ) ]
+"values": [Vector3(-24.661, 0, 0)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("RightShoulderJoint:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector3( -24.661, 0, 0 ) ]
+"values": [Vector3(-24.661, 0, 0)]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("LeftShoulderJoint/UpperArm/LowerArm/FakeDie:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ false ]
+"values": [false]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 resource_name = "Throw"
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("LeftShoulderJoint:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.15, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [ Vector3( -24.661, 16.796, 0 ), Vector3( 158.647, 0, 0 ), Vector3( -24.661, 0, 0 ) ]
+"values": [Vector3(-24.661, 16.796, 0), Vector3(158.647, 0, 0), Vector3(-24.661, 0, 0)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("RightShoulderJoint:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.15, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.15, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [ Vector3( -24.661, -21.35, 0 ), Vector3( 158.647, 0, 0 ), Vector3( -24.661, 0, 0 ) ]
+"values": [Vector3(-24.661, -21.35, 0), Vector3(158.647, 0, 0), Vector3(-24.661, 0, 0)]
 }
 tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "throw"
-} ]
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"throw"
+}]
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("LeftShoulderJoint/UpperArm/LowerArm/FakeDie:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ true, false ]
+"values": [true, false]
 }
 
-[sub_resource type="SphereShape" id=3]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jg21b"]
+_data = {
+"RESET": SubResource("1"),
+"Throw": SubResource("2")
+}
 
-[node name="PlayerDie" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[sub_resource type="SphereShape3D" id="3"]
+radius = 1.06703
+
+[node name="PlayerDie" instance=ExtResource("1")]
+script = ExtResource("2")
 
 [node name="LeftThighJoint" parent="." index="2"]
-transform = Transform( 1, 0, 0, 0, 0.832709, 0.553711, 0, -0.553711, 0.832709, 0.4, -0.45, 0 )
+transform = Transform3D(1, 0, 0, 0, 0.832709, 0.553711, 0, -0.553711, 0.832709, 0.4, -0.45, 0)
 
 [node name="LeftKneeJoint" parent="LeftThighJoint/Thigh" index="0"]
-transform = Transform( 1, -1.17705e-08, -4.38118e-08, -4.38118e-08, -0.501148, -0.865362, -1.17705e-08, 0.865362, -0.501148, 5.96046e-08, -0.400001, 2.98023e-08 )
+transform = Transform3D(1, -1.17705e-08, -4.38118e-08, -4.38118e-08, -0.501148, -0.865362, -1.17705e-08, 0.865362, -0.501148, 5.96046e-08, -0.400001, 2.98023e-08)
 
 [node name="LeftAnkleJoint" parent="LeftThighJoint/Thigh/LeftKneeJoint/Shin" index="0"]
-transform = Transform( 1, 0, 0, 0, -0.48952, 0.871992, 0, -0.871992, -0.489519, -2.68221e-07, -0.25, -5.96046e-08 )
+transform = Transform3D(1, 0, 0, 0, -0.489519, 0.871992, 0, -0.871992, -0.489519, -2.68221e-07, -0.25, -5.96046e-08)
 
 [node name="RightThighJoint" parent="." index="3"]
-transform = Transform( 1, 0, 0, 0, 0.832709, 0.553711, 0, -0.553711, 0.832709, -0.4, -0.45, 0 )
+transform = Transform3D(1, 0, 0, 0, 0.832709, 0.553711, 0, -0.553711, 0.832709, -0.4, -0.45, 0)
 
 [node name="RightKneeJoint" parent="RightThighJoint/Thigh" index="0"]
-transform = Transform( 1, 0, 0, 0, -0.501149, -0.865362, 0, 0.865362, -0.501149, 0, -0.4, 5.96046e-08 )
+transform = Transform3D(1, 0, 0, 0, -0.501149, -0.865362, 0, 0.865362, -0.501149, 0, -0.4, 5.96046e-08)
 
 [node name="RightAnkleJoint" parent="RightThighJoint/Thigh/RightKneeJoint/Shin" index="0"]
-transform = Transform( 1, 0, 0, 0, -0.48952, 0.871992, 0, -0.871992, -0.48952, 0, -0.25, -1.19209e-07 )
+transform = Transform3D(1, 0, 0, 0, -0.489519, 0.871992, 0, -0.871992, -0.489519, 0, -0.25, -1.19209e-07)
 
-[node name="Camera" type="Camera" parent="." index="5"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.5 )
+[node name="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_uf6fk")
+}
+
+[node name="Camera3D" type="Camera3D" parent="." index="5"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.5)
 current = true
 
-[node name="LeftShoulderJoint" type="Spatial" parent="." index="6"]
-transform = Transform( 1, 0, 0, 0, 0.908792, 0.417248, 0, -0.417248, 0.908792, 0.656837, 0.274592, 0.274081 )
+[node name="LeftShoulderJoint" type="Node3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 0.908792, 0.417248, 0, -0.417248, 0.908792, 0.656837, 0.274592, 0.274081)
 
-[node name="UpperArm" type="CSGCylinder" parent="LeftShoulderJoint" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.244807, 0 )
+[node name="UpperArm" type="CSGCylinder3D" parent="LeftShoulderJoint" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.244807, 0)
 radius = 0.1
 height = 0.6
 sides = 6
 smooth_faces = false
-material = ExtResource( 3 )
+material = ExtResource("3")
 
-[node name="LowerArm" type="CSGCylinder" parent="LeftShoulderJoint/UpperArm" index="0"]
-transform = Transform( 1, 0, 0, 0, 0.55102, 0.834492, 0, -0.834492, 0.55102, 0, 0.459136, -0.191219 )
+[node name="LowerArm" type="CSGCylinder3D" parent="LeftShoulderJoint/UpperArm" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.55102, 0.834492, 0, -0.834492, 0.55102, 0, 0.459136, -0.191219)
 radius = 0.1
 height = 0.6
 sides = 6
 smooth_faces = false
-material = ExtResource( 3 )
+material = ExtResource("3")
 
-[node name="FakeDie" type="CSGBox" parent="LeftShoulderJoint/UpperArm/LowerArm" index="0"]
-transform = Transform( 0.972097, 0.153842, 0.177092, -0.153842, 0.988, -0.0138149, -0.177092, -0.013815, 0.984098, -0.391038, 0.322001, 0.0706224 )
+[node name="FakeDie" type="CSGBox3D" parent="LeftShoulderJoint/UpperArm/LowerArm" index="0"]
+transform = Transform3D(0.972097, 0.153842, 0.177092, -0.153842, 0.988, -0.0138149, -0.177092, -0.013815, 0.984098, -0.391038, 0.322001, 0.0706224)
 visible = false
-width = 0.7
-height = 0.7
-depth = 0.7
+size = Vector3(0.7, 0.7, 0.7)
 
-[node name="RightShoulderJoint" type="Spatial" parent="." index="7"]
-transform = Transform( 1, 0, 0, 0, 0.908792, 0.417248, 0, -0.417248, 0.908792, -0.657, 0.275, 0.274 )
+[node name="RightShoulderJoint" type="Node3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 0.908792, 0.417248, 0, -0.417248, 0.908792, -0.657, 0.275, 0.274)
 
-[node name="UpperArm" type="CSGCylinder" parent="RightShoulderJoint" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.244807, 0 )
+[node name="UpperArm" type="CSGCylinder3D" parent="RightShoulderJoint" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.244807, 0)
 radius = 0.1
 height = 0.6
 sides = 6
 smooth_faces = false
-material = ExtResource( 3 )
+material = ExtResource("3")
 
-[node name="LowerArm" type="CSGCylinder" parent="RightShoulderJoint/UpperArm" index="0"]
-transform = Transform( 1, 0, 0, 0, 0.55102, 0.834492, 0, -0.834492, 0.55102, 0, 0.459136, -0.191219 )
+[node name="LowerArm" type="CSGCylinder3D" parent="RightShoulderJoint/UpperArm" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.55102, 0.834492, 0, -0.834492, 0.55102, 0, 0.459136, -0.191219)
 radius = 0.1
 height = 0.6
 sides = 6
 smooth_faces = false
-material = ExtResource( 3 )
+material = ExtResource("3")
 
 [node name="ArmAnimator" type="AnimationPlayer" parent="." index="8"]
-anims/RESET = SubResource( 1 )
-anims/Throw = SubResource( 2 )
+libraries = {
+"": SubResource("AnimationLibrary_jg21b")
+}
 
-[node name="ThrowPoint" type="Position3D" parent="." index="9"]
-transform = Transform( 0.944574, 0.215304, 0.247842, 2.01166e-07, 0.754924, -0.655813, -0.328301, 0.619464, 0.713081, 0.364, 0.568503, 1.29496 )
+[node name="ThrowPoint" type="Marker3D" parent="." index="9"]
+transform = Transform3D(0.944574, 0.215304, 0.247842, 2.01166e-07, 0.754924, -0.655813, -0.328301, 0.619464, 0.713081, 0.364, 0.568503, 1.29496)
 
 [node name="DamageTimer" type="Timer" parent="." index="10"]
 wait_time = 0.5
 
-[node name="Area" type="Area" parent="." index="11"]
+[node name="Area3D" type="Area3D" parent="." index="11"]
 
-[node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
-shape = SubResource( 3 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("3")
 
-[node name="VariableAudio" parent="." index="12" instance=ExtResource( 4 )]
-stream = ExtResource( 5 )
-unit_db = 2.0
+[node name="VariableAudio" parent="." index="12" instance=ExtResource("4")]
+stream = ExtResource("5")
+volume_db = 2.0
 autoplay = false
+bus = &"SFX"
 
 [connection signal="timeout" from="DamageTimer" to="." method="_on_DamageTimer_timeout"]
-[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

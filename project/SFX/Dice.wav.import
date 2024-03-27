@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Dice.wav-183d1cebe18f54b7374c5e9e9a785f19.sample"
+type="AudioStreamWAV"
+uid="uid://c77eujsoyh2k6"
+path="res://.godot/imported/Dice.wav-183d1cebe18f54b7374c5e9e9a785f19.sample"
 
 [deps]
 
 source_file="res://SFX/Dice.wav"
-dest_files=[ "res://.import/Dice.wav-183d1cebe18f54b7374c5e9e9a785f19.sample" ]
+dest_files=["res://.godot/imported/Dice.wav-183d1cebe18f54b7374c5e9e9a785f19.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

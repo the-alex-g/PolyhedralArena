@@ -2,10 +2,10 @@
 
 [ext_resource path="res://Materials/LegMaterial.tres" type="Material" id=1]
 
-[sub_resource type="BoxShape" id=1]
+[sub_resource type="BoxShape3D" id=1]
 extents = Vector3( 0.5, 0.5, 0.5 )
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="StandardMaterial3D" id=4]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -16,8 +16,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector3( -33.622, 0, 0 ) ]
 }
@@ -28,8 +28,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector3( -33.622, 0, 0 ) ]
 }
@@ -40,8 +40,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector3( 59.924, 180, 180 ) ]
 }
@@ -52,8 +52,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector3( -119.309, 0, 0 ) ]
 }
@@ -64,8 +64,8 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector3( 120.076, 0, 0 ) ]
 }
@@ -76,8 +76,8 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector3( -119.309, 0, 0 ) ]
 }
@@ -93,8 +93,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2, 0.4, 0.6 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( -33.622, 0, 0 ), Vector3( -58.084, 0, 0 ), Vector3( -33.622, 0, 0 ), Vector3( -8.422, 0, 0 ) ]
 }
@@ -105,8 +105,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( -33.622, 0, 0 ), Vector3( -8.11, 0, 0 ), Vector3( -63.058, 0, 0 ) ]
 }
@@ -117,8 +117,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 59.924, 180, 180 ), Vector3( 88.743, -0.000114427, -0.000113725 ), Vector3( 36.883, 180, 180 ) ]
 }
@@ -129,8 +129,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2, 0.4, 0.6 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( -119.309, 0, 0 ), Vector3( -86.072, 0, 0 ), Vector3( -119.309, 0, 0 ), Vector3( -79.414, 0, 0 ) ]
 }
@@ -141,8 +141,8 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2, 0.4, 0.6 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 120.076, 0, 0 ), Vector3( 135.069, 0, 0 ), Vector3( 120.076, 0, 0 ), Vector3( 87.601, 0, 0 ) ]
 }
@@ -153,86 +153,86 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2, 0.4, 0.6 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( -119.309, 0, 0 ), Vector3( -73.527, 0, 0 ), Vector3( -119.309, 0, 0 ), Vector3( -87.448, 0, 0 ) ]
 }
 
-[node name="Die" type="KinematicBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.72991, 0 )
+[node name="Die" type="CharacterBody3D"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.72991, 0 )
 axis_lock_motion_y = true
 move_lock_y = true
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource( 1 )
 
-[node name="CSGBox" type="CSGBox" parent="."]
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
 width = 1.0
 height = 1.0
 depth = 1.0
 material = SubResource( 4 )
 
-[node name="LeftThighJoint" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.832709, 0.553711, 0, -0.553711, 0.832709, -0.4, -0.45, 3.49691e-08 )
+[node name="LeftThighJoint" type="Node3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 0.832709, 0.553711, 0, -0.553711, 0.832709, -0.4, -0.45, 3.49691e-08 )
 
-[node name="Thigh" type="CSGCylinder" parent="LeftThighJoint"]
-transform = Transform( 1, 0, 0, 0, 0.948573, -0.31656, 0, 0.31656, 0.948573, 0, -0.45, 0 )
+[node name="Thigh" type="CSGCylinder3D" parent="LeftThighJoint"]
+transform = Transform3D( 1, 0, 0, 0, 0.948573, -0.31656, 0, 0.31656, 0.948573, 0, -0.45, 0 )
 radius = 0.1
 height = 0.8
 sides = 6
 smooth_faces = false
 material = ExtResource( 1 )
 
-[node name="LeftKneeJoint" type="Spatial" parent="LeftThighJoint/Thigh"]
-transform = Transform( 1, -1.17705e-08, -4.38118e-08, -4.38118e-08, -0.501148, -0.865362, -1.17705e-08, 0.865362, -0.501148, 5.96046e-08, -0.400001, 2.98023e-08 )
+[node name="LeftKneeJoint" type="Node3D" parent="LeftThighJoint/Thigh"]
+transform = Transform3D( 1, -1.17705e-08, -4.38118e-08, -4.38118e-08, -0.501148, -0.865362, -1.17705e-08, 0.865362, -0.501148, 5.96046e-08, -0.400001, 2.98023e-08 )
 
-[node name="Shin" type="CSGCylinder" parent="LeftThighJoint/Thigh/LeftKneeJoint"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0 )
+[node name="Shin" type="CSGCylinder3D" parent="LeftThighJoint/Thigh/LeftKneeJoint"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0 )
 radius = 0.1
 height = 0.5
 sides = 6
 smooth_faces = false
 material = ExtResource( 1 )
 
-[node name="LeftAnkleJoint" type="Spatial" parent="LeftThighJoint/Thigh/LeftKneeJoint/Shin"]
-transform = Transform( 1, 0, 0, 0, -0.48952, 0.871992, 0, -0.871992, -0.489519, -2.68221e-07, -0.25, -5.96046e-08 )
+[node name="LeftAnkleJoint" type="Node3D" parent="LeftThighJoint/Thigh/LeftKneeJoint/Shin"]
+transform = Transform3D( 1, 0, 0, 0, -0.48952, 0.871992, 0, -0.871992, -0.489519, -2.68221e-07, -0.25, -5.96046e-08 )
 
-[node name="Foot" type="CSGCylinder" parent="LeftThighJoint/Thigh/LeftKneeJoint/Shin/LeftAnkleJoint"]
-transform = Transform( 1, -5.74017e-05, 5.10932e-05, 5.7424e-05, 1, -0.00025028, -5.10683e-05, 0.00025028, 1, -0.000365973, -0.301019, 0.00397062 )
+[node name="Foot" type="CSGCylinder3D" parent="LeftThighJoint/Thigh/LeftKneeJoint/Shin/LeftAnkleJoint"]
+transform = Transform3D( 1, -5.74017e-05, 5.10932e-05, 5.7424e-05, 1, -0.00025028, -5.10683e-05, 0.00025028, 1, -0.000365973, -0.301019, 0.00397062 )
 radius = 0.1
 height = 0.7
 sides = 6
 smooth_faces = false
 material = ExtResource( 1 )
 
-[node name="RightThighJoint" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.832709, 0.553711, 0, -0.553711, 0.832709, 0.4, -0.45, -3.49691e-08 )
+[node name="RightThighJoint" type="Node3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, 0.832709, 0.553711, 0, -0.553711, 0.832709, 0.4, -0.45, -3.49691e-08 )
 
-[node name="Thigh" type="CSGCylinder" parent="RightThighJoint"]
-transform = Transform( 1, 0, 0, 0, 0.948573, -0.31656, 0, 0.31656, 0.948573, 0, -0.45, 0 )
+[node name="Thigh" type="CSGCylinder3D" parent="RightThighJoint"]
+transform = Transform3D( 1, 0, 0, 0, 0.948573, -0.31656, 0, 0.31656, 0.948573, 0, -0.45, 0 )
 radius = 0.1
 height = 0.8
 sides = 6
 smooth_faces = false
 material = ExtResource( 1 )
 
-[node name="RightKneeJoint" type="Spatial" parent="RightThighJoint/Thigh"]
-transform = Transform( 1, 0, 0, 0, -0.501149, -0.865362, 0, 0.865362, -0.501149, 0, -0.4, 5.96046e-08 )
+[node name="RightKneeJoint" type="Node3D" parent="RightThighJoint/Thigh"]
+transform = Transform3D( 1, 0, 0, 0, -0.501149, -0.865362, 0, 0.865362, -0.501149, 0, -0.4, 5.96046e-08 )
 
-[node name="Shin" type="CSGCylinder" parent="RightThighJoint/Thigh/RightKneeJoint"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0 )
+[node name="Shin" type="CSGCylinder3D" parent="RightThighJoint/Thigh/RightKneeJoint"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0 )
 radius = 0.1
 height = 0.5
 sides = 6
 smooth_faces = false
 material = ExtResource( 1 )
 
-[node name="RightAnkleJoint" type="Spatial" parent="RightThighJoint/Thigh/RightKneeJoint/Shin"]
-transform = Transform( 1, 0, 0, 0, -0.48952, 0.871992, 0, -0.871992, -0.48952, 0, -0.25, -1.19209e-07 )
+[node name="RightAnkleJoint" type="Node3D" parent="RightThighJoint/Thigh/RightKneeJoint/Shin"]
+transform = Transform3D( 1, 0, 0, 0, -0.48952, 0.871992, 0, -0.871992, -0.48952, 0, -0.25, -1.19209e-07 )
 
-[node name="Foot" type="CSGCylinder" parent="RightThighJoint/Thigh/RightKneeJoint/Shin/RightAnkleJoint"]
-transform = Transform( 1, -5.74017e-05, 5.10932e-05, 5.7424e-05, 1, -0.00025028, -5.10683e-05, 0.00025028, 1, -0.000365973, -0.301019, 0.00397062 )
+[node name="Foot" type="CSGCylinder3D" parent="RightThighJoint/Thigh/RightKneeJoint/Shin/RightAnkleJoint"]
+transform = Transform3D( 1, -5.74017e-05, 5.10932e-05, 5.7424e-05, 1, -0.00025028, -5.10683e-05, 0.00025028, 1, -0.000365973, -0.301019, 0.00397062 )
 radius = 0.1
 height = 0.7
 sides = 6

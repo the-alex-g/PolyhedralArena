@@ -1,389 +1,362 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=3 uid="uid://cagtuvay0n0df"]
 
-[ext_resource path="res://Menu/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://Font/Bungee-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Styles/theme.tres" type="Theme" id=3]
-[ext_resource path="res://ColoredFaces.png" type="Texture" id=4]
-[ext_resource path="res://Font/display.tres" type="DynamicFont" id=5]
-[ext_resource path="res://SFX/MainLoop.ogg" type="AudioStream" id=6]
-[ext_resource path="res://SFX/Click.wav" type="AudioStream" id=7]
+[ext_resource type="Script" path="res://Menu/MainMenu.gd" id="1"]
+[ext_resource type="FontFile" uid="uid://catm7o6olxsll" path="res://Font/Bungee-Regular.ttf" id="2"]
+[ext_resource type="Theme" uid="uid://dk1te0jh1n3wh" path="res://Styles/theme.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://uk80rh5ibtgd" path="res://ColoredFaces.png" id="4"]
+[ext_resource type="FontFile" path="res://Font/display.tres" id="5"]
+[ext_resource type="AudioStream" uid="uid://dbwi2uea3jmel" path="res://SFX/MainLoop.ogg" id="6"]
+[ext_resource type="AudioStream" uid="uid://cesvrihobm641" path="res://SFX/Click.wav" id="7"]
 
-[sub_resource type="DynamicFont" id=9]
-size = 64
-outline_size = 3
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 2 )
+[sub_resource type="FontFile" id="9"]
+fallbacks = Array[Font]([ExtResource("2")])
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 96, 96 )
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("4")
+region = Rect2(0, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 4 )
-region = Rect2( 96, 0, 96, 96 )
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("4")
+region = Rect2(96, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 4 )
-region = Rect2( 96, 96, 96, 96 )
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("4")
+region = Rect2(96, 96, 96, 96)
 
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 192, 96, 96 )
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("4")
+region = Rect2(0, 192, 96, 96)
 
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 96, 96, 96 )
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("4")
+region = Rect2(0, 96, 96, 96)
 
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 4 )
-region = Rect2( 96, 192, 96, 96 )
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("4")
+region = Rect2(96, 192, 96, 96)
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id="7"]
 resource_name = "Fade"
 length = 60.0
-loop = true
+loop_mode = 1
 step = 5.0
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 10, 20, 30, 40, 50 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 10, 20, 30, 40, 50),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [ Color( 0.333333, 0.8, 0, 1 ), Color( 0.721569, 0, 0, 1 ), Color( 0.746667, 0.8, 0, 1 ), Color( 0, 0.8, 0.653333, 1 ), Color( 0.72, 0, 0.8, 1 ), Color( 0.8, 0.493333, 0, 1 ) ]
+"values": [Color(0.333333, 0.8, 0, 1), Color(0.721569, 0, 0, 1), Color(0.746667, 0.8, 0, 1), Color(0, 0.8, 0.653333, 1), Color(0.72, 0, 0.8, 1), Color(0.8, 0.493333, 0, 1)]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id="8"]
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 0.411765, 1, 0, 1 ) ]
+"values": [Color(0.411765, 1, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qapb4"]
+_data = {
+"Fade": SubResource("7"),
+"RESET": SubResource("8")
 }
 
 [node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1.0
-margin_right = 1.0
-theme = ExtResource( 3 )
-script = ExtResource( 1 )
+offset_left = 1.0
+offset_right = 1.0
+theme = ExtResource("3")
+script = ExtResource("1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.411765, 1, 0, 1 )
+color = Color(0.411765, 1, 0, 1)
 
 [node name="Title" type="Label" parent="."]
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -354.0
-margin_top = 33.0
-margin_right = 354.0
-margin_bottom = 98.0
-custom_colors/font_color = Color( 1, 0.615686, 0, 1 )
-custom_fonts/font = SubResource( 9 )
+offset_left = -354.0
+offset_top = 33.0
+offset_right = 354.0
+offset_bottom = 98.0
+theme_override_colors/font_color = Color(1, 0.615686, 0, 1)
+theme_override_fonts/font = SubResource("9")
 text = "Polyhedron Arena"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
-margin_right = 89.0
-margin_bottom = 27.0
+layout_mode = 2
 text = "Play"
 
 [node name="StatButton" type="Button" parent="VBoxContainer"]
-margin_top = 31.0
-margin_right = 89.0
-margin_bottom = 58.0
-grow_horizontal = 2
+layout_mode = 2
 text = "Stats"
 
 [node name="Options" type="Button" parent="VBoxContainer"]
-margin_top = 62.0
-margin_right = 89.0
-margin_bottom = 89.0
+layout_mode = 2
 text = "Options"
 
 [node name="InstruxButton" type="Button" parent="VBoxContainer"]
-margin_top = 93.0
-margin_right = 89.0
-margin_bottom = 120.0
+layout_mode = 2
 text = "Instrux"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
-margin_top = 124.0
-margin_right = 89.0
-margin_bottom = 151.0
+layout_mode = 2
 text = "Quit"
 
 [node name="StatMenu" type="Panel" parent="."]
 visible = false
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 300.0
-margin_top = 35.0
-margin_right = -300.0
-margin_bottom = -35.0
+offset_left = 300.0
+offset_top = 35.0
+offset_right = -300.0
+offset_bottom = -35.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="StatMenu"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 96.0
-margin_bottom = 114.0
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 96.0
+offset_bottom = 114.0
 
 [node name="Mastermind" type="Label" parent="StatMenu/VBoxContainer"]
-margin_right = 96.0
-margin_bottom = 17.0
-grow_horizontal = 2
+layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="StatMenu/VBoxContainer"]
-margin_top = 21.0
-margin_right = 96.0
-margin_bottom = 117.0
-texture = SubResource( 1 )
+layout_mode = 2
+texture = SubResource("1")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="StatMenu"]
+layout_mode = 0
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_left = 10.0
-margin_top = -57.0
-margin_right = 96.0
-margin_bottom = 57.0
+offset_left = 10.0
+offset_top = -57.0
+offset_right = 96.0
+offset_bottom = 57.0
 
 [node name="Muncher" type="Label" parent="StatMenu/VBoxContainer2"]
-margin_right = 96.0
-margin_bottom = 17.0
-grow_horizontal = 2
+layout_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="StatMenu/VBoxContainer2"]
-margin_top = 21.0
-margin_right = 96.0
-margin_bottom = 117.0
-texture = SubResource( 2 )
+layout_mode = 2
+texture = SubResource("2")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="StatMenu"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -48.0
-margin_top = 10.0
-margin_right = 48.0
-margin_bottom = 114.0
+offset_left = -48.0
+offset_top = 10.0
+offset_right = 48.0
+offset_bottom = 114.0
 
 [node name="Devioid" type="Label" parent="StatMenu/VBoxContainer3"]
-margin_right = 96.0
-margin_bottom = 17.0
-grow_horizontal = 2
+layout_mode = 2
 
 [node name="TextureRect3" type="TextureRect" parent="StatMenu/VBoxContainer3"]
-margin_top = 21.0
-margin_right = 96.0
-margin_bottom = 117.0
-texture = SubResource( 3 )
+layout_mode = 2
+texture = SubResource("3")
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="StatMenu"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -48.0
-margin_top = -57.0
-margin_right = 48.0
-margin_bottom = 57.0
+offset_left = -48.0
+offset_top = -57.0
+offset_right = 48.0
+offset_bottom = 57.0
 
 [node name="Hopper" type="Label" parent="StatMenu/VBoxContainer4"]
-margin_right = 96.0
-margin_bottom = 17.0
-grow_horizontal = 2
+layout_mode = 2
 
 [node name="TextureRect4" type="TextureRect" parent="StatMenu/VBoxContainer4"]
-margin_top = 21.0
-margin_right = 96.0
-margin_bottom = 117.0
-texture = SubResource( 4 )
+layout_mode = 2
+texture = SubResource("4")
 
 [node name="VBoxContainer5" type="VBoxContainer" parent="StatMenu"]
+layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = -124.0
-margin_right = 96.0
-margin_bottom = -10.0
+offset_left = 10.0
+offset_top = -124.0
+offset_right = 96.0
+offset_bottom = -10.0
 
 [node name="Observer" type="Label" parent="StatMenu/VBoxContainer5"]
-margin_right = 96.0
-margin_bottom = 17.0
-grow_horizontal = 2
-grow_vertical = 0
+layout_mode = 2
 
 [node name="TextureRect5" type="TextureRect" parent="StatMenu/VBoxContainer5"]
-margin_top = 21.0
-margin_right = 96.0
-margin_bottom = 117.0
-texture = SubResource( 5 )
+layout_mode = 2
+texture = SubResource("5")
 
 [node name="VBoxContainer6" type="VBoxContainer" parent="StatMenu"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -48.0
-margin_top = -124.0
-margin_right = 48.0
-margin_bottom = -10.0
+offset_left = -48.0
+offset_top = -124.0
+offset_right = 48.0
+offset_bottom = -10.0
 
 [node name="Greeblin" type="Label" parent="StatMenu/VBoxContainer6"]
-margin_right = 96.0
-margin_bottom = 17.0
-grow_horizontal = 2
-grow_vertical = 0
+layout_mode = 2
 
 [node name="TextureRect6" type="TextureRect" parent="StatMenu/VBoxContainer6"]
-margin_top = 21.0
-margin_right = 96.0
-margin_bottom = 117.0
-texture = SubResource( 6 )
+layout_mode = 2
+texture = SubResource("6")
 
 [node name="VBoxContainer8" type="VBoxContainer" parent="StatMenu"]
+layout_mode = 0
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -50.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = 40.0
+offset_left = -50.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 40.0
 grow_horizontal = 0
 
 [node name="BestTime" type="Label" parent="StatMenu/VBoxContainer8"]
-margin_right = 115.0
-margin_bottom = 17.0
+layout_mode = 2
 text = "Best Time: "
 
 [node name="MostKills" type="Label" parent="StatMenu/VBoxContainer8"]
-margin_top = 21.0
-margin_right = 115.0
-margin_bottom = 38.0
+layout_mode = 2
 text = "Most Kills: "
 
 [node name="VBoxContainer7" type="VBoxContainer" parent="StatMenu"]
+layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -103.0
-margin_top = -104.0
-margin_right = -11.0
-margin_bottom = -10.0
+offset_left = -103.0
+offset_top = -104.0
+offset_right = -11.0
+offset_bottom = -10.0
 
 [node name="BackButton" type="Button" parent="StatMenu/VBoxContainer7"]
-margin_right = 92.0
-margin_bottom = 27.0
+layout_mode = 2
 text = "Back"
 
 [node name="ClearButton" type="Button" parent="StatMenu/VBoxContainer7"]
-margin_top = 31.0
-margin_right = 92.0
-margin_bottom = 58.0
+layout_mode = 2
 text = "Clear"
 
 [node name="OptionsMenu" type="Panel" parent="."]
 visible = false
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -161.5
-margin_top = -99.0
-margin_right = 161.5
-margin_bottom = 99.0
+offset_left = -161.5
+offset_top = -99.0
+offset_right = 161.5
+offset_bottom = 99.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="OptionsMenu"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Music" type="CheckButton" parent="OptionsMenu/VBoxContainer2"]
-margin_right = 211.0
-margin_bottom = 42.0
-pressed = true
+layout_mode = 2
 text = "Music"
 
 [node name="SFX" type="CheckButton" parent="OptionsMenu/VBoxContainer2"]
-margin_top = 46.0
-margin_right = 211.0
-margin_bottom = 88.0
-pressed = true
+layout_mode = 2
 text = "Sound Effects"
 
 [node name="Fullscreen" type="CheckButton" parent="OptionsMenu/VBoxContainer2"]
-margin_top = 92.0
-margin_right = 211.0
-margin_bottom = 134.0
+layout_mode = 2
 text = "Fullscreen"
 
 [node name="Back" type="Button" parent="OptionsMenu/VBoxContainer2"]
-margin_top = 138.0
-margin_right = 211.0
-margin_bottom = 165.0
+layout_mode = 2
 text = "Back"
 
 [node name="InstruxDisplay" type="Panel" parent="."]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -435.0
-margin_top = -149.0
-margin_right = 435.0
-margin_bottom = 149.0
+offset_left = -435.0
+offset_top = -149.0
+offset_right = 435.0
+offset_bottom = 149.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="InstruxDisplay"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -410.5
-margin_top = -134.0
-margin_right = 410.5
-margin_bottom = 134.0
+offset_left = -410.5
+offset_top = -134.0
+offset_right = 410.5
+offset_bottom = 134.0
 
 [node name="Header" type="Label" parent="InstruxDisplay/VBoxContainer"]
-margin_right = 821.0
-margin_bottom = 33.0
-custom_colors/font_color = Color( 1, 0.615686, 0, 1 )
-custom_fonts/font = ExtResource( 5 )
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.615686, 0, 1)
+theme_override_fonts/font = ExtResource("5")
 text = "Survive the Arena for as long as possible!"
 
 [node name="Instrux" type="Label" parent="InstruxDisplay/VBoxContainer"]
-margin_top = 37.0
-margin_right = 821.0
-margin_bottom = 214.0
+layout_mode = 2
 text = "-Left stick / WASD: Move
 -Right stick / left and right arrows: turn
 -X / space: attack! Hold to increase range
@@ -392,28 +365,26 @@ text = "-Left stick / WASD: Move
 -Number in center top of screen is the time you have survived so far
 -Number in top right of screen is the number of enemies you have killed in the round
 -Bar at bottom shows how long you have held attack for"
-autowrap = true
 
 [node name="BackButton" type="Button" parent="InstruxDisplay/VBoxContainer"]
-margin_top = 218.0
-margin_right = 821.0
-margin_bottom = 245.0
+layout_mode = 2
 text = "Back"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qapb4")
+}
 autoplay = "Fade"
-anims/Fade = SubResource( 7 )
-anims/RESET = SubResource( 8 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource("6")
 autoplay = true
-bus = "Music"
+bus = &"Music"
 
 [node name="Clicked" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
+stream = ExtResource("7")
 volume_db = 1.0
-bus = "SFX"
+bus = &"SFX"
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/StatButton" to="." method="_on_StatButton_pressed"]

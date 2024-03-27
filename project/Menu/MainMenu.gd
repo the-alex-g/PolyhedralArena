@@ -1,7 +1,7 @@
 extends Control
 
 const CONFIGPATH := "user://polyarena.cfg"
-const NAMES := [
+const ENEMY_NAMES := [
 	"mastermind",
 	"muncher",
 	"devioid",
@@ -10,11 +10,11 @@ const NAMES := [
 	"greeblin",
 ]
 
-onready var _stat_menu = $StatMenu as Panel
-onready var _options_menu = $OptionsMenu as Panel
-onready var _instrux = $InstruxDisplay as Panel
-onready var _stat_button = $VBoxContainer/StatButton as Button
-onready var _click_sound = $Clicked as AudioStreamPlayer
+@onready var _stat_menu = $StatMenu as Panel
+@onready var _options_menu = $OptionsMenu as Panel
+@onready var _instrux = $InstruxDisplay as Panel
+@onready var _stat_button = $VBoxContainer/StatButton as Button
+@onready var _click_sound = $Clicked as AudioStreamPlayer
 
 var _config = ConfigFile.new()
 var _music := AudioServer.get_bus_index("Music")
@@ -28,14 +28,14 @@ func _ready()->void:
 	if err != OK:
 		_reset_config()
 	_update_stats()
-	$OptionsMenu/VBoxContainer2/Music.pressed = !AudioServer.is_bus_mute(_music)
-	$OptionsMenu/VBoxContainer2/SFX.pressed = !AudioServer.is_bus_mute(_sfx)
-	$OptionsMenu/VBoxContainer2/Fullscreen.pressed = OS.window_fullscreen
+	$OptionsMenu/VBoxContainer2/Music.button_pressed = !AudioServer.is_bus_mute(_music)
+	$OptionsMenu/VBoxContainer2/SFX.button_pressed = !AudioServer.is_bus_mute(_sfx)
+	$OptionsMenu/VBoxContainer2/Fullscreen.button_pressed = ((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))
 
 
 func _reset_config()->void:
-	for name in NAMES:
-		_config.set_value("EnemiesKilled", name, 0)
+	for enemy_name in ENEMY_NAMES:
+		_config.set_value("EnemiesKilled", enemy_name, 0)
 	_config.set_value("Records", "best_time", 0)
 	_config.set_value("Records", "most_kills", 0)
 	_config.save(CONFIGPATH)
@@ -48,9 +48,9 @@ func _hide_menus()->void:
 
 
 func _update_stats()->void:
-	for name in NAMES:
-		var label = $StatMenu.find_node(name.capitalize()) as Label
-		label.text = name.capitalize() + ": " + str(_config.get_value("EnemiesKilled", name))
+	for enemy_name in ENEMY_NAMES:
+		var label = $StatMenu.find_child(enemy_name.capitalize()) as Label
+		label.text = enemy_name.capitalize() + ": " + str(_config.get_value("EnemiesKilled", enemy_name))
 	$StatMenu/VBoxContainer8/BestTime.text = "Best Time: " + str(_config.get_value("Records", "best_time"))
 	$StatMenu/VBoxContainer8/MostKills.text = "Most Kills: " + str(_config.get_value("Records", "most_kills"))
 
@@ -63,7 +63,7 @@ func _on_StatButton_pressed()->void:
 
 func _on_BackButton_pressed()->void:
 	_hide_menus()
-	$VBoxContainer/StatButton.grab_focus()
+	_stat_button.grab_focus()
 	_click_sound.play()
 
 
@@ -74,9 +74,7 @@ func _on_ClearButton_pressed()->void:
 
 
 func _on_PlayButton_pressed()->void:
-	# warning-ignore:return_value_discarded
-	get_tree().change_scene("res://Main/Main.tscn")
-	_click_sound.play()
+	get_tree().change_scene_to_file("res://Main/Main.tscn")
 
 
 func _on_Options_pressed()->void:
@@ -96,7 +94,7 @@ func _on_SFX_toggled(button_pressed:bool)->void:
 
 
 func _on_Fullscreen_toggled(button_pressed:bool)->void:
-	OS.window_fullscreen = button_pressed
+	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (button_pressed) else Window.MODE_WINDOWED
 	_click_sound.play()
 
 

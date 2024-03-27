@@ -1,16 +1,16 @@
 extends CanvasLayer
 
-onready var _time_display = $Time as Label
-onready var _kill_display = $Kills as Label
-onready var _power_display = $ProgressBar as ProgressBar
-onready var _health_animator = $AnimationPlayer as AnimationPlayer
-onready var _game_over_display = $GameOverDisplay as Panel
-onready var _click_sound = $Clicked as AudioStreamPlayer
+@onready var _time_display = $Time as Label
+@onready var _kill_display = $Kills as Label
+@onready var _power_display = $ProgressBar as ProgressBar
+@onready var _health_animator = $AnimationPlayer as AnimationPlayer
+@onready var _game_over_display = $GameOverDisplay as Panel
+@onready var _click_sound = $Clicked as AudioStreamPlayer
 
-var time := 0 setget _set_time
-var percent_powered := 0.0 setget _set_power
-var health := 6 setget _set_health
-var kills := 0 setget _set_kills
+var time := 0: set = _set_time
+var percent_powered := 0.0: set = _set_power
+var health := 6: set = _set_health
+var kills := 0: set = _set_kills
 
 
 func _ready()->void:
@@ -51,11 +51,10 @@ func display_game_over(best_time:int, most_kills:int)->void:
 
 func _on_PlayAgain_pressed()->void:
 	# warning-ignore:return_value_discarded
-	get_tree().change_scene("res://Main/Main.tscn")
-	_click_sound.play()
+	get_tree().change_scene_to_file("res://Main/Main.tscn")
 
 
 func _on_MainMenu_pressed()->void:
 	# warning-ignore:return_value_discarded
-	get_tree().change_scene("res://Menu/MainMenu.tscn")
+	get_tree().change_scene_to_file("res://Menu/MainMenu.tscn")
 	_click_sound.play()

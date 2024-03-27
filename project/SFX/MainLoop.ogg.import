@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/MainLoop.ogg-6b8f06665f731c676cef4ee25a859117.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dbwi2uea3jmel"
+path="res://.godot/imported/MainLoop.ogg-6b8f06665f731c676cef4ee25a859117.oggvorbisstr"
 
 [deps]
 
 source_file="res://SFX/MainLoop.ogg"
-dest_files=[ "res://.import/MainLoop.ogg-6b8f06665f731c676cef4ee25a859117.oggstr" ]
+dest_files=["res://.godot/imported/MainLoop.ogg-6b8f06665f731c676cef4ee25a859117.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

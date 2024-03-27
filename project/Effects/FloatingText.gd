@@ -1,7 +1,7 @@
-extends Spatial
+extends Node3D
 
-var text := "" setget _set_text
+var text := "": set = _set_text
 
 
 func _set_text(value:String)->void:
-	$Viewport/Label.text = value
+	$SubViewport/Label.text = value

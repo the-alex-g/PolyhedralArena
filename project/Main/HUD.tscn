@@ -1,36 +1,36 @@
 [gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Main/HUD.gd" type="Script" id=1]
-[ext_resource path="res://WhitePips.png" type="Texture" id=2]
+[ext_resource path="res://WhitePips.png" type="Texture2D" id=2]
 [ext_resource path="res://Styles/theme.tres" type="Theme" id=3]
-[ext_resource path="res://Font/display.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Font/font.tres" type="DynamicFont" id=5]
-[ext_resource path="res://Target.png" type="Texture" id=6]
+[ext_resource path="res://Font/display.tres" type="FontFile" id=4]
+[ext_resource path="res://Font/font.tres" type="FontFile" id=5]
+[ext_resource path="res://Target.png" type="Texture2D" id=6]
 [ext_resource path="res://SFX/Click.wav" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=21]
 resource_name = "0"
 tracks/0/type = "value"
-tracks/0/path = NodePath("ViewportContainer:margin_top")
+tracks/0/path = NodePath("SubViewportContainer:offset_top")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 700.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("ViewportContainer/Viewport/Die:rotation_degrees")
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Die:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, -90, -180 ), Vector3( 74.358, 392.857, -534.624 ) ]
 }
@@ -39,14 +39,14 @@ tracks/1/keys = {
 resource_name = "1"
 length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("ViewportContainer/Viewport/Die:rotation_degrees")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Die:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, -90, -90 ), Vector3( 0, -90, -180 ) ]
 }
@@ -55,14 +55,14 @@ tracks/0/keys = {
 resource_name = "2"
 length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("ViewportContainer/Viewport/Die:rotation_degrees")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Die:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, -90 ), Vector3( 0, -90, -90 ) ]
 }
@@ -71,14 +71,14 @@ tracks/0/keys = {
 resource_name = "3"
 length = 0.2
 tracks/0/type = "value"
-tracks/0/path = NodePath("ViewportContainer/Viewport/Die:rotation_degrees")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Die:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, -180, 90 ), Vector3( 0, 0, -90 ) ]
 }
@@ -87,14 +87,14 @@ tracks/0/keys = {
 resource_name = "4"
 length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("ViewportContainer/Viewport/Die:rotation_degrees")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Die:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, -90, 90 ), Vector3( 0, -180, 90 ) ]
 }
@@ -103,14 +103,14 @@ tracks/0/keys = {
 resource_name = "5"
 length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("ViewportContainer/Viewport/Die:rotation_degrees")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Die:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, 90 ) ]
 }
@@ -118,67 +118,67 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=3]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("ViewportContainer/Viewport/Die:rotation_degrees")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Die:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector3( 0, -90, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("ViewportContainer/Viewport/Die:translation")
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/Die:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector3( 0, -30.7555, -1.31825 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("ViewportContainer:margin_right")
+tracks/2/path = NodePath("SubViewportContainer:offset_right")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 40.0 ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("ViewportContainer:margin_bottom")
+tracks/3/path = NodePath("SubViewportContainer:offset_bottom")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 40.0 ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("ViewportContainer:margin_top")
+tracks/4/path = NodePath("SubViewportContainer:offset_top")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
 
-[sub_resource type="SpatialMaterial" id=20]
+[sub_resource type="StandardMaterial3D" id=20]
 albedo_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="AtlasTexture" id=14]
@@ -219,10 +219,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 texture = ExtResource( 6 )
 stretch_mode = 4
 
@@ -231,10 +231,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -100.0
-margin_top = -24.0
-margin_right = 100.0
-margin_bottom = -10.0
+offset_left = -100.0
+offset_top = -24.0
+offset_right = 100.0
+offset_bottom = -10.0
 grow_horizontal = 2
 theme = ExtResource( 3 )
 percent_visible = false
@@ -242,24 +242,24 @@ percent_visible = false
 [node name="Time" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -20.0
-margin_top = 10.0
-margin_right = 20.0
-margin_bottom = 14.0
+offset_left = -20.0
+offset_top = 10.0
+offset_right = 20.0
+offset_bottom = 14.0
 grow_horizontal = 2
-custom_fonts/font = ExtResource( 4 )
+theme_override_fonts/font = ExtResource( 4 )
 text = "0"
 align = 1
 
 [node name="Kills" type="Label" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -40.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = 39.0
+offset_left = -40.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 39.0
 grow_horizontal = 0
-custom_fonts/font = ExtResource( 5 )
+theme_override_fonts/font = ExtResource( 5 )
 text = "0"
 align = 1
 
@@ -272,54 +272,54 @@ anims/4 = SubResource( 1 )
 anims/5 = SubResource( 2 )
 anims/RESET = SubResource( 3 )
 
-[node name="ViewportContainer" type="ViewportContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 size = Vector2( 100, 100 )
 transparent_bg = true
 handle_input_locally = false
 render_target_v_flip = true
 render_target_update_mode = 3
 
-[node name="Camera" type="Camera" parent="ViewportContainer/Viewport"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30.7555, 0 )
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30.7555, 0 )
 
-[node name="Die" type="CSGBox" parent="ViewportContainer/Viewport"]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -30.7555, -1.31825 )
+[node name="Die" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -30.7555, -1.31825 )
 material_override = SubResource( 20 )
 width = 1.0
 height = 1.0
 depth = 1.0
 
-[node name="Sprite3D" type="Sprite3D" parent="ViewportContainer/Viewport/Die"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.51, 0, 0 )
+[node name="Sprite3D" type="Sprite3D" parent="SubViewportContainer/SubViewport/Die"]
+transform = Transform3D( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.51, 0, 0 )
 modulate = Color( 0.207843, 0.854902, 0, 1 )
 texture = SubResource( 14 )
 
-[node name="Sprite3D2" type="Sprite3D" parent="ViewportContainer/Viewport/Die"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.51, 0, 0 )
+[node name="Sprite3D2" type="Sprite3D" parent="SubViewportContainer/SubViewport/Die"]
+transform = Transform3D( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.51, 0, 0 )
 modulate = Color( 1, 0, 0, 1 )
 texture = SubResource( 15 )
 
-[node name="Sprite3D3" type="Sprite3D" parent="ViewportContainer/Viewport/Die"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.51, 0 )
+[node name="Sprite3D3" type="Sprite3D" parent="SubViewportContainer/SubViewport/Die"]
+transform = Transform3D( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.51, 0 )
 modulate = Color( 0.898039, 1, 0, 1 )
 texture = SubResource( 16 )
 
-[node name="Sprite3D4" type="Sprite3D" parent="ViewportContainer/Viewport/Die"]
-transform = Transform( 0.999997, -0.00217941, -0.00104763, -0.00104839, -0.000349831, -0.999999, 0.00217904, 0.999998, -0.000352111, 2.50205e-09, 0.51, 0 )
+[node name="Sprite3D4" type="Sprite3D" parent="SubViewportContainer/SubViewport/Die"]
+transform = Transform3D( 0.999997, -0.00217941, -0.00104763, -0.00104839, -0.000349831, -0.999999, 0.00217904, 0.999998, -0.000352111, 2.50205e-09, 0.51, 0 )
 modulate = Color( 1, 0.282353, 0, 1 )
 texture = SubResource( 17 )
 
-[node name="Sprite3D5" type="Sprite3D" parent="ViewportContainer/Viewport/Die"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.51 )
+[node name="Sprite3D5" type="Sprite3D" parent="SubViewportContainer/SubViewport/Die"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.51 )
 modulate = Color( 1, 0.607843, 0, 1 )
 texture = SubResource( 18 )
 
-[node name="Sprite3D6" type="Sprite3D" parent="ViewportContainer/Viewport/Die"]
-transform = Transform( 0.999994, 0.00154872, -0.00322254, -0.00155038, 0.999999, -0.000516385, 0.00322174, 0.000521356, 0.999995, -0.00236773, 0.0022974, -0.50841 )
+[node name="Sprite3D6" type="Sprite3D" parent="SubViewportContainer/SubViewport/Die"]
+transform = Transform3D( 0.999994, 0.00154872, -0.00322254, -0.00155038, 0.999999, -0.000516385, 0.00322174, 0.000521356, 0.999995, -0.00236773, 0.0022974, -0.50841 )
 modulate = Color( 1, 0.819608, 0, 1 )
 texture = SubResource( 19 )
 
@@ -329,50 +329,50 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -75.0
-margin_top = -110.0
-margin_right = 75.0
-margin_bottom = 110.0
+offset_left = -75.0
+offset_top = -110.0
+offset_right = 75.0
+offset_bottom = 110.0
 theme = ExtResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameOverDisplay"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -45.0
-margin_top = 30.0
-margin_right = 45.0
-margin_bottom = 160.0
+offset_left = -45.0
+offset_top = 30.0
+offset_right = 45.0
+offset_bottom = 160.0
 grow_horizontal = 2
 
 [node name="Time" type="Label" parent="GameOverDisplay/VBoxContainer"]
-margin_right = 116.0
-margin_bottom = 17.0
+offset_right = 116.0
+offset_bottom = 17.0
 
 [node name="Kills" type="Label" parent="GameOverDisplay/VBoxContainer"]
-margin_top = 21.0
-margin_right = 116.0
-margin_bottom = 38.0
+offset_top = 21.0
+offset_right = 116.0
+offset_bottom = 38.0
 
 [node name="BestTime" type="Label" parent="GameOverDisplay/VBoxContainer"]
-margin_top = 42.0
-margin_right = 116.0
-margin_bottom = 59.0
+offset_top = 42.0
+offset_right = 116.0
+offset_bottom = 59.0
 
 [node name="MostKills" type="Label" parent="GameOverDisplay/VBoxContainer"]
-margin_top = 63.0
-margin_right = 116.0
-margin_bottom = 80.0
+offset_top = 63.0
+offset_right = 116.0
+offset_bottom = 80.0
 
 [node name="PlayAgain" type="Button" parent="GameOverDisplay/VBoxContainer"]
-margin_top = 84.0
-margin_right = 116.0
-margin_bottom = 111.0
+offset_top = 84.0
+offset_right = 116.0
+offset_bottom = 111.0
 text = "Play Again"
 
 [node name="MainMenu" type="Button" parent="GameOverDisplay/VBoxContainer"]
-margin_top = 115.0
-margin_right = 116.0
-margin_bottom = 142.0
+offset_top = 115.0
+offset_right = 116.0
+offset_bottom = 142.0
 text = "Main Menu"
 
 [node name="Clicked" type="AudioStreamPlayer" parent="."]
