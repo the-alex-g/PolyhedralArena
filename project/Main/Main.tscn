@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Main/Main.gd" id="3"]
 [ext_resource type="Material" path="res://Materials/WallMaterial.tres" id="4"]
 [ext_resource type="PackedScene" uid="uid://b0hico1csb1d0" path="res://Main/Spawner.tscn" id="5"]
-[ext_resource type="PackedScene" path="res://Main/HUD.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://cd8b6wp1yhx6p" path="res://Main/HUD.tscn" id="6"]
 [ext_resource type="AudioStream" uid="uid://dbwi2uea3jmel" path="res://SFX/MainLoop.ogg" id="7"]
 [ext_resource type="PackedScene" path="res://Effects/Scenery/Pillar.tscn" id="8"]
 
@@ -19,6 +19,8 @@ sky_material = SubResource("ProceduralSkyMaterial_1sicw")
 
 [sub_resource type="Environment" id="Environment_n7aue"]
 background_mode = 2
+background_color = Color(0.811765, 1, 1, 1)
+background_energy_multiplier = 3.0
 sky = SubResource("Sky_ss1u2")
 
 [node name="Main" type="Node3D"]

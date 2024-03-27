@@ -10,7 +10,7 @@ const ENEMY_NAMES := [
 	"greeblin",
 ]
 
-@onready var _stat_menu = $StatMenu as Panel
+@onready var _stat_menu : PanelContainer = $StatMenu
 @onready var _options_menu = $OptionsMenu as Panel
 @onready var _instrux = $InstruxDisplay as Panel
 @onready var _stat_button = $VBoxContainer/StatButton as Button
@@ -36,8 +36,7 @@ func _ready()->void:
 func _reset_config()->void:
 	for enemy_name in ENEMY_NAMES:
 		_config.set_value("EnemiesKilled", enemy_name, 0)
-	_config.set_value("Records", "best_time", 0)
-	_config.set_value("Records", "most_kills", 0)
+	_config.set_value("Records", "best_score", 0)
 	_config.save(CONFIGPATH)
 
 
@@ -48,21 +47,21 @@ func _hide_menus()->void:
 
 
 func _update_stats()->void:
-	for enemy_name in ENEMY_NAMES:
-		var label = $StatMenu.find_child(enemy_name.capitalize()) as Label
-		label.text = enemy_name.capitalize() + ": " + str(_config.get_value("EnemiesKilled", enemy_name))
-	$StatMenu/VBoxContainer8/BestTime.text = "Best Time: " + str(_config.get_value("Records", "best_time"))
-	$StatMenu/VBoxContainer8/MostKills.text = "Most Kills: " + str(_config.get_value("Records", "most_kills"))
+	for enemy_name : String in ENEMY_NAMES:
+		var label : Label = $StatMenu/VBoxContainer/GridContainer.find_child(enemy_name.capitalize())
+		label.text = enemy_name.capitalize() + ": " + str(_config.get_value("EnemiesKilled", enemy_name, 0))
+	$StatMenu/VBoxContainer/HighScore.text = "Best Score: " + str(_config.get_value("Records", "best_score", 0))
 
 
 func _on_StatButton_pressed()->void:
 	_stat_menu.visible = true
-	$StatMenu/VBoxContainer7/BackButton.grab_focus()
+	$StatMenu/VBoxContainer/BackButton.grab_focus()
 	_click_sound.play()
 
 
 func _on_BackButton_pressed()->void:
 	_hide_menus()
+	
 	_stat_button.grab_focus()
 	_click_sound.play()
 

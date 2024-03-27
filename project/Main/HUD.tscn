@@ -1,220 +1,224 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=3 uid="uid://cd8b6wp1yhx6p"]
 
-[ext_resource path="res://Main/HUD.gd" type="Script" id=1]
-[ext_resource path="res://WhitePips.png" type="Texture2D" id=2]
-[ext_resource path="res://Styles/theme.tres" type="Theme" id=3]
-[ext_resource path="res://Font/display.tres" type="FontFile" id=4]
-[ext_resource path="res://Font/font.tres" type="FontFile" id=5]
-[ext_resource path="res://Target.png" type="Texture2D" id=6]
-[ext_resource path="res://SFX/Click.wav" type="AudioStream" id=7]
+[ext_resource type="Script" path="res://Main/HUD.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dyl3xvtcqibq3" path="res://WhitePips.png" id="2"]
+[ext_resource type="Theme" uid="uid://dk1te0jh1n3wh" path="res://Styles/theme.tres" id="3"]
+[ext_resource type="FontFile" path="res://Font/display.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://cfv0jwata68rt" path="res://Target.png" id="6"]
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id="21"]
 resource_name = "0"
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("SubViewportContainer:offset_top")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.5 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ 0.0, 700.0 ]
+"values": [0.0, 700.0]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("SubViewportContainer/SubViewport/Die:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.5 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector3( 0, -90, -180 ), Vector3( 74.358, 392.857, -534.624 ) ]
+"values": [Vector3(0, -90, -180), Vector3(74.358, 392.857, -534.624)]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id="4"]
 resource_name = "1"
 length = 0.1
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("SubViewportContainer/SubViewport/Die:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector3( 0, -90, -90 ), Vector3( 0, -90, -180 ) ]
+"values": [Vector3(0, -90, -90), Vector3(0, -90, -180)]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id="5"]
 resource_name = "2"
 length = 0.1
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("SubViewportContainer/SubViewport/Die:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector3( 0, 0, -90 ), Vector3( 0, -90, -90 ) ]
+"values": [Vector3(0, 0, -90), Vector3(0, -90, -90)]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id="6"]
 resource_name = "3"
 length = 0.2
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("SubViewportContainer/SubViewport/Die:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector3( 0, -180, 90 ), Vector3( 0, 0, -90 ) ]
+"values": [Vector3(0, -180, 90), Vector3(0, 0, -90)]
 }
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="1"]
 resource_name = "4"
 length = 0.1
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("SubViewportContainer/SubViewport/Die:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector3( 0, -90, 90 ), Vector3( 0, -180, 90 ) ]
+"values": [Vector3(0, -90, 90), Vector3(0, -180, 90)]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 resource_name = "5"
 length = 0.1
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("SubViewportContainer/SubViewport/Die:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, 90 ) ]
+"values": [Vector3(0, -90, 0), Vector3(0, -90, 90)]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("SubViewportContainer/SubViewport/Die:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector3( 0, -90, 0 ) ]
+"values": [Vector3(0, -90, 0)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("SubViewportContainer/SubViewport/Die:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector3( 0, -30.7555, -1.31825 ) ]
+"values": [Vector3(0, -30.7555, -1.31825)]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("SubViewportContainer:offset_right")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ 40.0 ]
+"values": [40.0]
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("SubViewportContainer:offset_bottom")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ 40.0 ]
+"values": [40.0]
 }
 tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
 tracks/4/path = NodePath("SubViewportContainer:offset_top")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
 tracks/4/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ 0.0 ]
+"values": [0.0]
 }
 
-[sub_resource type="StandardMaterial3D" id=20]
-albedo_color = Color( 0, 0, 0, 1 )
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5uygc"]
+_data = {
+"0": SubResource("21"),
+"1": SubResource("4"),
+"2": SubResource("5"),
+"3": SubResource("6"),
+"4": SubResource("1"),
+"5": SubResource("2"),
+"RESET": SubResource("3")
+}
 
-[sub_resource type="AtlasTexture" id=14]
-flags = 7
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 96, 96 )
+[sub_resource type="StandardMaterial3D" id="20"]
+albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="AtlasTexture" id=15]
-flags = 7
-atlas = ExtResource( 2 )
-region = Rect2( 96, 192, 96, 96 )
+[sub_resource type="AtlasTexture" id="14"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id=16]
-flags = 7
-atlas = ExtResource( 2 )
-region = Rect2( 96, 0, 96, 96 )
+[sub_resource type="AtlasTexture" id="15"]
+atlas = ExtResource("2")
+region = Rect2(96, 192, 96, 96)
 
-[sub_resource type="AtlasTexture" id=17]
-flags = 7
-atlas = ExtResource( 2 )
-region = Rect2( 0, 192, 96, 96 )
+[sub_resource type="AtlasTexture" id="16"]
+atlas = ExtResource("2")
+region = Rect2(96, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id=18]
-flags = 7
-atlas = ExtResource( 2 )
-region = Rect2( 96, 96, 96, 96 )
+[sub_resource type="AtlasTexture" id="17"]
+atlas = ExtResource("2")
+region = Rect2(0, 192, 96, 96)
 
-[sub_resource type="AtlasTexture" id=19]
-flags = 7
-atlas = ExtResource( 2 )
-region = Rect2( 0, 96, 96, 96 )
+[sub_resource type="AtlasTexture" id="18"]
+atlas = ExtResource("2")
+region = Rect2(96, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="19"]
+atlas = ExtResource("2")
+region = Rect2(0, 96, 96, 96)
 
 [node name="HUD" type="CanvasLayer"]
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="Aimer" type="TextureRect" parent="."]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -223,10 +227,11 @@ offset_left = -20.0
 offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
-texture = ExtResource( 6 )
+texture = ExtResource("6")
 stretch_mode = 4
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -236,10 +241,10 @@ offset_top = -24.0
 offset_right = 100.0
 offset_bottom = -10.0
 grow_horizontal = 2
-theme = ExtResource( 3 )
-percent_visible = false
+theme = ExtResource("3")
 
-[node name="Time" type="Label" parent="."]
+[node name="Score" type="Label" parent="."]
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
@@ -247,84 +252,64 @@ offset_top = 10.0
 offset_right = 20.0
 offset_bottom = 14.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource( 4 )
+theme_override_fonts/font = ExtResource("4")
 text = "0"
-align = 1
-
-[node name="Kills" type="Label" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = 39.0
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource( 5 )
-text = "0"
-align = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/0 = SubResource( 21 )
-anims/1 = SubResource( 4 )
-anims/2 = SubResource( 5 )
-anims/3 = SubResource( 6 )
-anims/4 = SubResource( 1 )
-anims/5 = SubResource( 2 )
-anims/RESET = SubResource( 3 )
+libraries = {
+"": SubResource("AnimationLibrary_5uygc")
+}
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-size = Vector2( 100, 100 )
 transparent_bg = true
 handle_input_locally = false
-render_target_v_flip = true
-render_target_update_mode = 3
+size = Vector2i(100, 100)
+render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30.7555, 0 )
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -30.7555, 0)
 
 [node name="Die" type="CSGBox3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -30.7555, -1.31825 )
-material_override = SubResource( 20 )
-width = 1.0
-height = 1.0
-depth = 1.0
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -30.7555, -1.31825)
+material_override = SubResource("20")
 
 [node name="Sprite3D" type="Sprite3D" parent="SubViewportContainer/SubViewport/Die"]
-transform = Transform3D( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.51, 0, 0 )
-modulate = Color( 0.207843, 0.854902, 0, 1 )
-texture = SubResource( 14 )
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.51, 0, 0)
+modulate = Color(0.207843, 0.854902, 0, 1)
+texture = SubResource("14")
 
 [node name="Sprite3D2" type="Sprite3D" parent="SubViewportContainer/SubViewport/Die"]
-transform = Transform3D( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.51, 0, 0 )
-modulate = Color( 1, 0, 0, 1 )
-texture = SubResource( 15 )
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.51, 0, 0)
+modulate = Color(1, 0, 0, 1)
+texture = SubResource("15")
 
 [node name="Sprite3D3" type="Sprite3D" parent="SubViewportContainer/SubViewport/Die"]
-transform = Transform3D( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.51, 0 )
-modulate = Color( 0.898039, 1, 0, 1 )
-texture = SubResource( 16 )
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.51, 0)
+modulate = Color(0.898039, 1, 0, 1)
+texture = SubResource("16")
 
 [node name="Sprite3D4" type="Sprite3D" parent="SubViewportContainer/SubViewport/Die"]
-transform = Transform3D( 0.999997, -0.00217941, -0.00104763, -0.00104839, -0.000349831, -0.999999, 0.00217904, 0.999998, -0.000352111, 2.50205e-09, 0.51, 0 )
-modulate = Color( 1, 0.282353, 0, 1 )
-texture = SubResource( 17 )
+transform = Transform3D(0.999997, -0.00217941, -0.00104763, -0.00104839, -0.000349831, -0.999999, 0.00217904, 0.999998, -0.000352111, 2.50205e-09, 0.51, 0)
+modulate = Color(1, 0.282353, 0, 1)
+texture = SubResource("17")
 
 [node name="Sprite3D5" type="Sprite3D" parent="SubViewportContainer/SubViewport/Die"]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.51 )
-modulate = Color( 1, 0.607843, 0, 1 )
-texture = SubResource( 18 )
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.51)
+modulate = Color(1, 0.607843, 0, 1)
+texture = SubResource("18")
 
 [node name="Sprite3D6" type="Sprite3D" parent="SubViewportContainer/SubViewport/Die"]
-transform = Transform3D( 0.999994, 0.00154872, -0.00322254, -0.00155038, 0.999999, -0.000516385, 0.00322174, 0.000521356, 0.999995, -0.00236773, 0.0022974, -0.50841 )
-modulate = Color( 1, 0.819608, 0, 1 )
-texture = SubResource( 19 )
+transform = Transform3D(0.999994, 0.00154872, -0.00322254, -0.00155038, 0.999999, -0.000516385, 0.00322174, 0.000521356, 0.999995, -0.00236773, 0.0022974, -0.50841)
+modulate = Color(1, 0.819608, 0, 1)
+texture = SubResource("19")
 
 [node name="GameOverDisplay" type="Panel" parent="."]
 visible = false
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -333,9 +318,10 @@ offset_left = -75.0
 offset_top = -110.0
 offset_right = 75.0
 offset_bottom = 110.0
-theme = ExtResource( 3 )
+theme = ExtResource("3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GameOverDisplay"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -45.0
@@ -344,41 +330,19 @@ offset_right = 45.0
 offset_bottom = 160.0
 grow_horizontal = 2
 
-[node name="Time" type="Label" parent="GameOverDisplay/VBoxContainer"]
-offset_right = 116.0
-offset_bottom = 17.0
+[node name="Score" type="Label" parent="GameOverDisplay/VBoxContainer"]
+layout_mode = 2
 
-[node name="Kills" type="Label" parent="GameOverDisplay/VBoxContainer"]
-offset_top = 21.0
-offset_right = 116.0
-offset_bottom = 38.0
-
-[node name="BestTime" type="Label" parent="GameOverDisplay/VBoxContainer"]
-offset_top = 42.0
-offset_right = 116.0
-offset_bottom = 59.0
-
-[node name="MostKills" type="Label" parent="GameOverDisplay/VBoxContainer"]
-offset_top = 63.0
-offset_right = 116.0
-offset_bottom = 80.0
+[node name="BestScore" type="Label" parent="GameOverDisplay/VBoxContainer"]
+layout_mode = 2
 
 [node name="PlayAgain" type="Button" parent="GameOverDisplay/VBoxContainer"]
-offset_top = 84.0
-offset_right = 116.0
-offset_bottom = 111.0
+layout_mode = 2
 text = "Play Again"
 
 [node name="MainMenu" type="Button" parent="GameOverDisplay/VBoxContainer"]
-offset_top = 115.0
-offset_right = 116.0
-offset_bottom = 142.0
+layout_mode = 2
 text = "Main Menu"
-
-[node name="Clicked" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-volume_db = 1.0
-bus = "SFX"
 
 [connection signal="pressed" from="GameOverDisplay/VBoxContainer/PlayAgain" to="." method="_on_PlayAgain_pressed"]
 [connection signal="pressed" from="GameOverDisplay/VBoxContainer/MainMenu" to="." method="_on_MainMenu_pressed"]

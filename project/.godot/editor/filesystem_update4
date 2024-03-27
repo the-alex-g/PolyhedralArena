@@ -1,15 +1,10 @@
 res://environment.tres
 res://Menu/MainMenu.tscn
 res://Styles/theme.tres
-res://Menu/MainMenu.gd
 res://Main/Main.tscn
 res://Main/Spawner.tscn
-res://Main/Spawner.gd
-res://Dice/DeadDie.gd
 res://Dice/DeadDie.tscn
-res://Dice/Enemy.gd
 res://Dice/EnemyDie.tscn
 res://Dice/PlayerDie.tscn
-res://Dice/PlayerDie.gd
-res://Main/Main.gd
-res://Main/HUD.gd
+res://Dice/SixSidedDie.tscn
+res://Main/HUD.tscn

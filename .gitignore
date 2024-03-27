@@ -3,6 +3,7 @@ build
 .directory
 project/.import
 project/logs
+project/.godot
 
 # LMMS Backup files
 *mmpz.bak

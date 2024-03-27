@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c0x1i286a51lw"]
 
 [ext_resource type="Script" path="res://Dice/DeadDie.gd" id="1"]
-[ext_resource type="PackedScene" path="res://Dice/SixSidedDie.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://cod5hb3evya0b" path="res://Dice/SixSidedDie.tscn" id="2"]
 [ext_resource type="PackedScene" path="res://Effects/VariableAudio.tscn" id="3"]
 [ext_resource type="AudioStream" uid="uid://c77eujsoyh2k6" path="res://SFX/Dice.wav" id="4"]
 
